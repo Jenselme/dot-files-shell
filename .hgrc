@@ -1,0 +1,14 @@
+[pager]
+pager = LESS='FRX' less
+
+[extensions]
+progress =
+pager = 
+color = 
+
+[ui]
+username = Julien Enselme <jenselme@jujens.eu>
+editor = nano
+
+[progress]
+delay = 1

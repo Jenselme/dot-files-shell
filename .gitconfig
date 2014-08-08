@@ -1,0 +1,17 @@
+[user]
+	name = Julien Enselme
+	email = julien.enselme@centrale-marseille.fr
+[push]
+	default = simple
+[core]
+	editor = emacsclient -nw
+	excludesfile = /home/jenselme/.gitignore_global
+[color]
+	diff = auto
+	status = auto
+	branch = auto
+[alias]
+	ci = commit
+	co = checkout
+	st = status
+	br = branch
