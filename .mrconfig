@@ -5,7 +5,7 @@ git_gc = git gc "$@"
 
 [$HOME/.config/vcsh/repo.d/emacs.git]
 checkout =
-    vcsh clone ssh://git@jujens.eu/home/git/emacs.git
+    vcsh clone ssh://git@jujens.eu/home/git/emacs.git emacs
     vcsh emacs git remote add github git@github.com:Jenselme/dot-files-emacs.git
 
 push =
@@ -14,8 +14,8 @@ push =
 
 [$HOME/.config/vcsh/repo.d/zsh.git]
 checkout =
-    vcsh clone ssh://git@jujens.eu/home/git/zsh.git
-    vcsh emacs git remote add github git@github.com:Jenselme/dot-files-zsh.git
+    vcsh clone ssh://git@jujens.eu/home/git/zsh.git zsh
+    vcsh zsh git remote add github git@github.com:Jenselme/dot-files-zsh.git
 
 push =
     vcsh zsh push
@@ -23,17 +23,17 @@ push =
 
 [$HOME/.config/vcsh/repo.d/dcvs.git]
 checkout =
-    vcsh clone ssh://git@jujens.eu/home/git/dcvs.git
-    vcsh emacs git remote add github git@github.com:Jenselme/dot-files-dcvs.git
+    vcsh clone ssh://git@jujens.eu/home/git/dcvs.git dcvs
+    vcsh dcvs git remote add github git@github.com:Jenselme/dot-files-dcvs.git
 
 push =
-     vcsh shell push
-     vcsh shell push github
+     vcsh dcvs push
+     vcsh dcvs push github
 
 [$HOME/.config/vcsh/repo.d/shell.git]
 checkout =
-    vcsh clone ssh://git@jujens.eu/home/git/shell.git
-    vcsh emacs git remote add github git@github.com:Jenselme/dot-files-shell.git
+    vcsh clone ssh://git@jujens.eu/home/git/shell.git shell
+    vcsh shell git remote add github git@github.com:Jenselme/dot-files-shell.git
 
 push =
     vcsh shell push
