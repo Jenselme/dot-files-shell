@@ -1,0 +1,18 @@
+#!/usr/bin/bash
+alias em="emacs -nw"
+alias me="emacs --no-init-file --no-site-file --load ~/.emacs.d/minimal.el"
+alias mem="me -nw"
+alias nanow="nano -w"
+
+alias ll="ls -l"
+alias la="ls -a"
+
+alias assos="ssh webassos'"
+alias jenselme="ssh jenselme"
+alias robot="ssh clubrobot"
+
+alias scv-notebook="simplecv notebook"
+alias ipy-notebook="ipython notebook"
+alias ipy-notebook3="ipython3 notebook"
+
+alias blog="virtualenv.sh blog"
