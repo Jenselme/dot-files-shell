@@ -1,0 +1,25 @@
+# -*- mode: sh -*-
+
+[DEFAULT]
+git_gc = git gc "$@"
+
+[$HOME/.config/vcsh/repo.d/emacs.git]
+checkout = vcsh clone git@jujens.eu/home/git/emacs.git
+push =
+    vcsh emacs push
+    vcsh emacs push github
+
+[$HOME/.config/vcsh/repo.d/zsh.git]
+push =
+    vcsh zsh push
+    vcsh zsh push github
+
+[$HOME/.config/vcsh/repo.d/dcvs.git]
+push =
+     vcsh shell push
+     vcsh shell push github
+
+[$HOME/.config/vcsh/repo.d/shell.git]
+push =
+    vcsh shell push
+    vcsh shell push github
