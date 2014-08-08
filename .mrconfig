@@ -4,22 +4,37 @@
 git_gc = git gc "$@"
 
 [$HOME/.config/vcsh/repo.d/emacs.git]
-checkout = vcsh clone git@jujens.eu/home/git/emacs.git
+checkout =
+    vcsh clone ssh://git@jujens.eu/home/git/emacs.git
+    vcsh emacs git remote add github git@github.com:Jenselme/dot-files-emacs.git
+
 push =
     vcsh emacs push
     vcsh emacs push github
 
 [$HOME/.config/vcsh/repo.d/zsh.git]
+checkout =
+    vcsh clone ssh://git@jujens.eu/home/git/zsh.git
+    vcsh emacs git remote add github git@github.com:Jenselme/dot-files-zsh.git
+
 push =
     vcsh zsh push
     vcsh zsh push github
 
 [$HOME/.config/vcsh/repo.d/dcvs.git]
+checkout =
+    vcsh clone ssh://git@jujens.eu/home/git/dcvs.git
+    vcsh emacs git remote add github git@github.com:Jenselme/dot-files-dcvs.git
+
 push =
      vcsh shell push
      vcsh shell push github
 
 [$HOME/.config/vcsh/repo.d/shell.git]
+checkout =
+    vcsh clone ssh://git@jujens.eu/home/git/shell.git
+    vcsh emacs git remote add github git@github.com:Jenselme/dot-files-shell.git
+
 push =
     vcsh shell push
     vcsh shell push github
