@@ -5,7 +5,7 @@ git_gc = git gc "$@"
 
 [$HOME/.config/vcsh/repo.d/emacs.git]
 checkout =
-    vcsh clone ssh://git@jujens.eu/home/git/emacs.git emacs
+    vcsh clone --recursive ssh://git@jujens.eu/home/git/emacs.git emacs
     vcsh emacs remote add github git@github.com:Jenselme/dot-files-emacs.git
 
 push =
