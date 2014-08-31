@@ -7,6 +7,11 @@ reenable_drupal_module() {
   drush -y en $1
 }
 
+# Copy a file $1 to jenselme:~/html/visible/$2
+cp-to-ecm-visible() {
+  scp $1 jenselme@sas1.centrale-marseille.fr:~/html/visible/$2
+}
+
 # Send the GIT_* env variables in an SSH session
 ssh-with-git() {
     (GIT_COMMITTER_EMAIL="julien.enselme@centrale-marseille.fr"
