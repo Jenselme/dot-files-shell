@@ -14,5 +14,3 @@ alias robot="ssh clubrobot"
 alias scv-notebook="simplecv notebook"
 alias ipy-notebook="ipython notebook"
 alias ipy-notebook3="ipython3 notebook"
-
-alias blog="virtualenv.sh blog"
