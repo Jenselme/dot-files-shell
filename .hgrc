@@ -3,8 +3,8 @@ pager = LESS='FRX' less
 
 [extensions]
 progress =
-pager = 
-color = 
+pager =
+color =
 
 [ui]
 username = Julien Enselme <jenselme@jujens.eu>
