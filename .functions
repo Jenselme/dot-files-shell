@@ -1,5 +1,15 @@
 #!/usr/bin/bash
 
+powersave() {
+    tuned-adm profile powersave
+    echo 'Profile powersave enabled.'
+}
+
+desktop() {
+    tuned-adm profile desktop
+    echo 'Profile desktop enabled.'
+}
+
 # Switch to pyenv blog
 blog() {
     cd ~/server/blog/
