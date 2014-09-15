@@ -2,7 +2,7 @@
 
 fedora-git-clone() {
     cd ~/fedora-scm
-    git clone "http://pkgs.fedoraproject.org/cgit/$1.git/"
+    git clone "ssh://pkgs.fedoraproject.org/$1.git"
     cd $1
     git config user.email 'jujens@jujens.eu'
 }
