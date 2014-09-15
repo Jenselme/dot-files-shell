@@ -1,6 +1,14 @@
 #!/usr/bin/bash
 
+fedora-git-clone() {
+    cd ~/fedora-scm
+    git clone "http://pkgs.fedoraproject.org/cgit/$1.git/"
+    cd $1
+    git config user.email 'jujens@jujens.eu'
+}
+
 powersave() {
+    sudo /home/jenselme/bin/set-intel-brightness.sh
     tuned-adm profile powersave
     echo 'Profile powersave enabled.'
 }
