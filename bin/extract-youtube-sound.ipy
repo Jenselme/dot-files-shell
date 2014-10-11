@@ -1,4 +1,5 @@
 #!/usr/bin/ipython3
+import os
 
 a = !ls
 # Les variables contiennent des espaces, on les entoure donc avec des guillements
