@@ -23,11 +23,11 @@ while getopts ":h:u:p:P" opt
 do
     case "$opt" in
 	h)
-	    host=$OPTARG; hflag=true;;
+	    host="$OPTARG"; hflag=true;;
 	u)
-	    user=$OPTARG; uflag=true;;
+	    user="$OPTARG"; uflag=true;;
 	p)
-	    passwd=$OPTARG; pflag=true;;
+	    passwd="$OPTARG"; pflag=true;;
 	P)
 	    Pflag=true;;
 	:)
@@ -40,33 +40,33 @@ done
 shift $((OPTIND-1)) # To get the 1st positional argument with $1
 
 # Check that we have at least 2 positional arguments
-if [ $# -lt 2 ] ; then
+if [ "$#" -lt 2 ] ; then
     echo "Number of positional arguments insuffisant."
     usage
     exit 1
 fi
 
 # Cannot provide and ask for password
-if $Pflag && $pflag; then
+if "$Pflag" && "$pflag"; then
     echo "Cannot provide and ask for password."
     usage
     exit 1
 fi
 
-if $hflag; then
+if "$hflag"; then
     HOST="-h $host"
 fi
-if $pflag; then
+if "$pflag"; then
     PASSWD="-p$passwd"
 fi
-if $Pflag; then
+if "$Pflag"; then
     PASSWD="-p"
 fi
-if $uflag; then
+if "$uflag"; then
     USER="-u $user"
 fi
 
 mysql="mysql $HOST $PASSWD $USER"
-for table in $($mysql $1 -NBe "SHOW TABLES LIKE '$2%'"); do
-    $mysql $1 -e "DROP TABLE $table"
+for table in "$($mysql $1 -NBe "SHOW TABLES LIKE '$2%'")"; do
+    "$mysql" "$1" -e "DROP TABLE $table"
 done

@@ -3,7 +3,7 @@
 fedora-git-clone() {
     cd ~/fedora-scm
     git clone "ssh://pkgs.fedoraproject.org/$1.git"
-    cd $1
+    cd "$1"
     git config user.email 'jujens@jujens.eu'
 }
 
@@ -27,14 +27,14 @@ blog() {
 
 # To reenable a drupal module (disactivate, uninstall, install)
 reenable_drupal_module() {
-  drush -y dis $1 &&
-  drush -y pm-uninstall $1 &&
-  drush -y en $1
+  drush -y dis "$1" &&
+  drush -y pm-uninstall "$1" &&
+  drush -y en "$1"
 }
 
 # Copy a file $1 to jenselme:~/html/visible/$2
 cp-to-ecm-visible() {
-  scp $1 jenselme@sas1.centrale-marseille.fr:~/html/visible/$2
+  scp "$1" "jenselme@sas1.centrale-marseille.fr:~/html/visible/$2"
 }
 
 # Send the GIT_* env variables in an SSH session
@@ -45,7 +45,7 @@ ssh-with-git() {
     GIT_AUTHOR_NAME=$GIT_COMMITTER_NAME
 
     export GIT_COMMITTER_EMAIL GIT_COMMITTER_NAME GIT_AUTHOR_EMAIL GIT_AUTHOR_NAME
-    ssh $*)
+    ssh "$*")
 }
 
 # Colored manual
