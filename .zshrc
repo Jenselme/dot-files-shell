@@ -82,3 +82,5 @@ source ~/.aliases
 
 # Custom functions
 source ~/.functions
+
+source /home/jenselme/.profile
