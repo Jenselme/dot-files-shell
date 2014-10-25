@@ -21,3 +21,6 @@ drsync /run/media/jenselme/Data/Archives/ /run/media/jenselme/Backup_Data/Archiv
 
 echo -e "Downloads"
 drsync /home/jenselme/Downloads/ /run/media/jenselme/Backup_Data/Downloads
+
+echo -e "Android"
+drsync /home/jenselme/android/ /run/media/jenselme/Backup_Data/android
