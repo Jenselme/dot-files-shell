@@ -1,5 +1,9 @@
 #!/usr/bin/bash
 
+ink_level() {
+    sudo escputil -i -r /dev/usb/lp0
+}
+
 fedora-git-clone() {
     cd ~/fedora-scm
     git clone "ssh://pkgs.fedoraproject.org/$1.git"
