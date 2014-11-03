@@ -1,6 +1,6 @@
 #!/usr/bin/bash
 
-PATH=/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/sbin:/home/jenselme/bin:/home/jenselme/android/android-sdk-linux/tools:/home/jenselme/android/android-ndk-r10c
+PATH=/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/sbin:/home/jenselme/bin:/home/jenselme/android/android-sdk-linux/tools:/home/jenselme/android/android-ndk-r10c:/home/jenselme/IDE/netbeans/netbeans-8.0/bin:/home/jenselme/IDE/idea-IU-135.1289/bin/
 export PATH
 
 # NDK config (for android native apps)
