@@ -5,6 +5,7 @@ pager = LESS='FRX' less
 progress =
 pager =
 color =
+graphlog =
 
 [ui]
 username = Julien Enselme <jenselme@jujens.eu>
