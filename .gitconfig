@@ -1,15 +1,3 @@
-[user]
-	name = Julien Enselme
-	email = julien.enselme@centrale-marseille.fr
-[push]
-	default = simple
-[core]
-	editor = emacsclient -nw
-	excludesfile = /home/jenselme/.gitignore_global
-[color]
-	diff = auto
-	status = auto
-	branch = auto
 [alias]
 	ci = commit
 	co = checkout
@@ -17,12 +5,31 @@
 	br = branch
 	lg = log --graph --pretty=tformat:'%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%an %ar)%Creset'
 	oops = commit --amend --no-edit
-[pull]
-	rebase = preserve
+[color]
+	diff = auto
+	status = auto
+	branch = auto
+
+[core]
+	editor = emacsclient -nw
+	excludesfile = /home/jenselme/.gitignore_global
+
 [diff]
 	mnemonicPrefix = true
 	wordRegex = .
+
 [grep]
 	extendedRegexp = true
+
 [log]
 	abbrevCommit = true
+
+[pull]
+	rebase = preserve
+
+[push]
+	default = simple
+
+[user]
+	name = Julien Enselme
+	email = julien.enselme@centrale-marseille.fr
