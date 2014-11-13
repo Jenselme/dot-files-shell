@@ -15,5 +15,14 @@
 	co = checkout
 	st = status -sb
 	br = branch
+	lg = log --graph --pretty=tformat:'%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%an %ar)%Creset'
+	oops = commit --amend --no-edit
 [pull]
 	rebase = preserve
+[diff]
+	mnemonicPrefix = true
+	wordRegex = .
+[grep]
+	extendedRegexp = true
+[log]
+	abbrevCommit = true
