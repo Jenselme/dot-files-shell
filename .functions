@@ -1,4 +1,4 @@
-#!/usr/bin/bash
+#!/usr/bin/env bash
 
 j8mvn() {
     JAVA_HOME=/usr/lib/jvm/java-1.8.0 mvn "$@"
@@ -75,22 +75,29 @@ function extract() {
     local file_name
     local extract_dir
 
-    if (( $# == 0 )); then
-	echo "Usage: extract [-option] [file ...]"
-	echo
-	echo Options:
-	echo " -r, --remove Remove archive."
-	echo
-	echo "Report bugs to <sorin.ionescu@gmail.com>."
-    fi
+    function usage(){
+cat << __EOF__
+Usage: extract [-option] [file ...]
+
+Options:
+ -r Remove archive.
+__EOF__
+    }
 
     remove_archive=1
-    if [[ "$1" == "-r" ]] || [[ "$1" == "--remove" ]]; then
-	remove_archive=0
-	shift
+    while getopts "r:" opt; do
+        case $opt in
+            r) remove_archive=0 ;;
+            \?) usage >&2; return 2 ;;
+        esac
+    done
+    shift "$((OPTIND-1))"
+
+    if (( # == 0 )); then
+        usage
     fi
 
-    while (( $# > 0 )); do
+    while (( # > 0 )); do
 	if [[ ! -f "$1" ]]; then
 	    echo "extract: '$1' is not a valid file" 1>&2
 	    shift
