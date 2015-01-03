@@ -4,23 +4,37 @@ shopt -s expand_aliases
 alias rsync="rsync -a --progress --exclude '*~'"
 alias drsync="rsync --delete"
 
-echo -e "Vidéos\n"
-rsync /run/media/jenselme/Data/Videos/ /run/media/jenselme/Backup_Data/Videos
+declare -A rsync_folders
+declare -A drsync_folders
 
-echo -e "VM\n"
-drsync /run/media/jenselme/Data/VM/ /run/media/jenselme/Backup_Data/VM
+# rsync
+## Videos
+rsync_folders["/run/media/jenselme/Data/Videos/"]="/run/media/jenselme/Backup_Data/Videos"
 
-echo -e "Pictures\n"
-drsync /home/jenselme/Pictures/ /run/media/jenselme/Backup_Data/Pictures
 
-echo -e "Music\n"
-drsync /home/jenselme/Music/ /run/media/jenselme/Backup_Data/Music
+# drsync
+## VM
+drsync_folders["/run/media/jenselme/Data/VM/"]="/run/media/jenselme/Backup_Data/VM"
+## Pictures
+drsync_folders["/home/jenselme/Pictures/"]="/run/media/jenselme/Backup_Data/Pictures"
+## Music
+drsync_folders["/home/jenselme/Music/"]="/run/media/jenselme/Backup_Data/Music"
+## Archives
+drsync_folders["/run/media/jenselme/Data/Archives/"]="/run/media/jenselme/Backup_Data/Archives"
+## Downloads
+drsync_folders["/home/jenselme/Downloads/"]="/run/media/jenselme/Backup_Data/Downloads"
+## Android
+drsync_folders["/home/jenselme/android/"]="/run/media/jenselme/Backup_Data/android"
+## Books
+drsync_folders["/home/jenselme/Livres/"]="/run/media/jenselme/Backup_Data/Livres"
 
-echo -e "Archives\n"
-drsync /run/media/jenselme/Data/Archives/ /run/media/jenselme/Backup_Data/Archives
+for folder in "${!rsync_folders[@]}"; do
+    echo -e "${folder}"
+    rsync "${folder}" "${rsync_folders[$folder]}"
+done
 
-echo -e "Downloads"
-drsync /home/jenselme/Downloads/ /run/media/jenselme/Backup_Data/Downloads
+for folder in "${!drsync_folders[@]}"; do
+    echo -e "${folder}"
+    drsync "${folder}" "${drsync_folders[$folder]}"
+done
 
-echo -e "Android"
-drsync /home/jenselme/android/ /run/media/jenselme/Backup_Data/android
