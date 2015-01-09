@@ -75,6 +75,7 @@ while true; do
 	    echo "Enter the filename to add (. for all files)"
 	    read file_name
 	    hg add "${file_name}"
+	    ;;
 	ci|commit)
 	    echo "Please enter the commit message:"
 	    read commit_msg
