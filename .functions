@@ -30,13 +30,6 @@ desktop() {
     echo 'Profile desktop enabled.'
 }
 
-# Switch to pyenv blog
-blog() {
-    cd ~/server/blog/
-    source bin/activate
-    cd pelican/jujens.eu
-}
-
 # To reenable a drupal module (disactivate, uninstall, install)
 reenable_drupal_module() {
   drush -y dis "$1" &&
