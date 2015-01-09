@@ -60,8 +60,8 @@ while true; do
 	    stop_command "${regenerate_pid}"
 	    serve_pid=''
 	    regenerate_pid=''
-	    cat <&3 > /dev/null
-	    cat <&4 > /dev/null
+	    cat <&3 > /dev/null 2>&1
+	    cat <&4 > /dev/null 2>&1
 	    make rsync_upload > /dev/null
 	    ;;
 	push)
