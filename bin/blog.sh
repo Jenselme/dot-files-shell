@@ -71,6 +71,9 @@ while true; do
 	st|status)
 	    hg st
 	    ;;
+	diff)
+	    hg diff
+	    ;;
 	add)
 	    echo "Enter the filename to add (. for all files)"
 	    read file_name
