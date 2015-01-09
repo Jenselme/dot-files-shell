@@ -82,7 +82,7 @@ while true; do
 	    hg ci -m "${commit_msg}"
 	    ;;
 	serve)
-	    if [ "${serve_pid}" ] && ! has_died "${serve_pid}"; then
+	    if [ -n "${serve_pid}" ] && ! has_died "${serve_pid}"; then
 		echo "Serve is already running."
 	    else
 		exec 4< <(make serve 2>&1)
@@ -90,7 +90,7 @@ while true; do
 	    fi
 	    ;;
 	regenerate)
-	    if [ "${regenerate_pid}" ] && ! has_died "${regenerate_pid}"; then
+	    if [ -n "${regenerate_pid}" ] && ! has_died "${regenerate_pid}"; then
 		echo "Regenerate is already running."
 	    else
 		exec 3< <(make regenerate 2>&1)
