@@ -6,14 +6,13 @@ if [ -z "$1"  ] ; then
     exit 1
 fi
 
-if [ -z "$2" ] ; then
-    patchname="$2"
-else
-    patchname="$1.patch"
-fi
+patchname="removed-pattern.patch"
 
-for filename in $(grep -lri "$1" *); do
+for filename in $(grep -lri "$1" * | grep -v .bak); do
     cp "${filename}" "${filename}.bak"
     sed -i "/$1/d" "${filename}"
     diff -u "${filename}.bak" "${filename}" >> "${patchname}"
 done
+
+# Remove .bak in filenames of the patch
+sed -i -e "s#^\(--- .*\)\.bak#\1#" "${patchname}"
