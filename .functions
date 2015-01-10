@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 diffback() {
-    diff -u "$1.bak" "$1"
+    diff -u "$1.bak" "$1" | sed -e "s#^\(--- .*\)\.bak#\1#"
 }
 
 back() {
