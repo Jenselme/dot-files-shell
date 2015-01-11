@@ -1,4 +1,4 @@
-#!/usr/bin/bash
+#!/usr/bin/env bash
 
 help="mysql_drop_table_like [options] database pattern
 
