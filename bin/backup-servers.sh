@@ -1,4 +1,4 @@
-#!/usr/bin/bash
+#!/usr/bin/env bash
 
 . /home/jenselme/bin/scripts-config.sh
 

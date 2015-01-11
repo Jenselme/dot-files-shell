@@ -1,4 +1,4 @@
-#!/usr/bin/bash
+#!/usr/bin/env bash
 # script d'installation des logiciels
 
 ########               ajout des dépots
