@@ -12,10 +12,6 @@ unlog() {
     python3 ~/projects/unlog/unlog/main.py "$@"
 }
 
-j8mvn() {
-    JAVA_HOME=/usr/lib/jvm/java-1.8.0 mvn "$@"
-}
-
 ink_level() {
     sudo escputil -i -r /dev/usb/lp0
 }
