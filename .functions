@@ -1,5 +1,10 @@
 #!/usr/bin/env bash
 
+error_exit() {
+    echo "$1" >&2
+    exit "${2:-1}"
+}
+
 diffback() {
     diff -u "$1.bak" "$1" | sed -e "s#^\(--- .*\)\.bak#\1#"
 }
