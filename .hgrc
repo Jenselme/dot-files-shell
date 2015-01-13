@@ -1,0 +1,16 @@
+[pager]
+pager = LESS='FRX' less
+
+[extensions]
+progress =
+pager =
+color =
+graphlog =
+
+[ui]
+username = Julien Enselme <jenselme@jujens.eu>
+editor = nano
+ignore = ~/.hgignore
+
+[progress]
+delay = 1

@@ -1,0 +1,40 @@
+# -*- mode: sh -*-
+
+[DEFAULT]
+git_gc = git gc "$@"
+
+[$HOME/.config/vcsh/repo.d/emacs.git]
+checkout =
+    vcsh clone --recursive ssh://git@jujens.eu/home/git/emacs.git emacs
+    vcsh emacs remote add github git@github.com:Jenselme/dot-files-emacs.git
+
+push =
+    vcsh emacs push
+    vcsh emacs push github
+
+[$HOME/.config/vcsh/repo.d/zsh.git]
+checkout =
+    vcsh clone ssh://git@jujens.eu/home/git/zsh.git zsh
+    vcsh zsh remote add github git@github.com:Jenselme/dot-files-zsh.git
+
+push =
+    vcsh zsh push
+    vcsh zsh push github
+
+[$HOME/.config/vcsh/repo.d/dcvs.git]
+checkout =
+    vcsh clone ssh://git@jujens.eu/home/git/dcvs.git dcvs
+    vcsh dcvs remote add github git@github.com:Jenselme/dot-files-dcvs.git
+
+push =
+     vcsh dcvs push
+     vcsh dcvs push github
+
+[$HOME/.config/vcsh/repo.d/shell.git]
+checkout =
+    vcsh clone ssh://git@jujens.eu/home/git/shell.git shell
+    vcsh shell remote add github git@github.com:Jenselme/dot-files-shell.git
+
+push =
+    vcsh shell push
+    vcsh shell push github
