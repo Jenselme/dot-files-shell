@@ -15,9 +15,9 @@ has_died() {
 }
 
 get_pid() {
-    pid=$(pgrep "$1")
+    pid=$(pgrep -fx "$1")
     until [ -n "${pid}" ]; do
-	pid=$(pgrep "$1")
+	pid=$(pgrep -fx "$1")
     done
     echo "${pid}"
 }
