@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 stop_command() {
-    if [ "$1" ]; then
+    if (( "$1" > 1 )); then
 	kill "$1"
     fi
 }
@@ -14,14 +14,10 @@ has_died() {
     fi
 }
 
-find_pid() {
-    echo $(ps -elf | grep "$1" | grep -v '&&' | grep -v 'grep' | awk '{print $4}')
-}
-
 get_pid() {
-    pid=$(find_pid "$1")
+    pid=$(pgrep "$1")
     until [ -n "${pid}" ]; do
-	pid=$(find_pid "$1")
+	pid=$(pgrep "$1")
     done
     echo "${pid}"
 }
@@ -94,7 +90,7 @@ while true; do
 	    ;;
 	regenerate)
 	    if [ -n "${regenerate_pid}" ] && ! has_died "${regenerate_pid}"; then
-		echo "Regenerate is already running."
+		echo "Regenerate is already running." >&2
 	    else
 		exec 3< <(make regenerate 2>&1)
 		regenerate_pid=$(get_pid 'make regenerate')
@@ -111,7 +107,7 @@ while true; do
 	    cat <&3 > /dev/null
 	    ;;
 	stop)
-	    echo "Stop requires an argument: serve or regenerate"
+	    echo "Stop requires an argument: serve or regenerate" >&2
 	    ;;
 	quit)
 	    break
@@ -128,7 +124,7 @@ while true; do
 	    ;;
 	*)
 	    if [ -n "${command}" ]; then
-		echo -e "${command} is invalid."
+		echo -e "${command} is invalid." >&2
 	    fi
     esac
 done

@@ -1,35 +1,6 @@
 #!/usr/bin/env bash
 
-rpmbuild -bp "$1"
-
-ret="$?"
-if [ "$ret" -eq 0 ] ; then
-  rpmbuild -bc --short-circuit "$1"
-else
-  echo "rpmbuild -bp $1 && failed."
-  exit 1
-fi
-
-ret="$?"
-if [ "$ret" -eq 0 ] ; then
-  rpmbuild -bi --short-circuit "$1"
-else
-  echo "rpmbuild -bc --short-circuit $1 && failed"
-  exit 1
-fi
-
-ret="$?"
-if [ "$ret" -eq 0 ] ; then
-  rpmbuild -ba "$1"
-else
-  echo "rpmbuild -bi --short-circuit $1"
-  exit 1
-fi
-
-ret="$?"
-if [ "$ret" -ne 0 ] ; then
-  echo "rpmbuild -ba $1 && failed."
-  exit 1
-else
-  exit 0
-fi
+! rpmbuild -bp "$1" && echo "rpmbuild -bp $1 && failed." >&2; exit 1;
+! rpmbuild -bc --short-circuit "$1" || echo "rpmbuild -bc --short-circuit $1 && failed" >&2; exit 2;
+! rpmbuild -bi --short-circuit "$1" || echo "rpmbuild -bi --short-circuit $1" >&2; exit 3;
+! rpmbuild -ba "$1" || echo "rpmbuild -ba $1 && failed." >&2; exit 4;

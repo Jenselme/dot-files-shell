@@ -40,16 +40,16 @@ done
 shift $((OPTIND-1)) # To get the 1st positional argument with $1
 
 # Check that we have at least 2 positional arguments
-if [ "$#" -lt 2 ] ; then
-    echo "Number of positional arguments insuffisant."
-    usage
+if (( $# > 2 )) ; then
+    echo "Number of positional arguments insuffisant." >&2
+    usage >&2
     exit 1
 fi
 
 # Cannot provide and ask for password
 if "$Pflag" && "$pflag"; then
-    echo "Cannot provide and ask for password."
-    usage
+    echo "Cannot provide and ask for password." >&2
+    usage >&2
     exit 1
 fi
 
