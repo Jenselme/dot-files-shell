@@ -78,9 +78,5 @@ fi
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-source ~/.aliases
-
-# Custom functions
-source ~/.functions
 
 source /home/jenselme/.profile
