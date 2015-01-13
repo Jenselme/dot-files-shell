@@ -94,7 +94,7 @@ while true; do
 	    ;;
 	regenerate)
 	    if [ -n "${regenerate_pid}" ] && ! has_died "${regenerate_pid}"; then
-		echo "Regenerate is already running."
+		echo "Regenerate is already running." >&2
 	    else
 		exec 3< <(make regenerate 2>&1)
 		regenerate_pid=$(get_pid 'make regenerate')
@@ -111,7 +111,7 @@ while true; do
 	    cat <&3 > /dev/null
 	    ;;
 	stop)
-	    echo "Stop requires an argument: serve or regenerate"
+	    echo "Stop requires an argument: serve or regenerate" >&2
 	    ;;
 	quit)
 	    break
@@ -128,7 +128,7 @@ while true; do
 	    ;;
 	*)
 	    if [ -n "${command}" ]; then
-		echo -e "${command} is invalid."
+		echo -e "${command} is invalid." >&2
 	    fi
     esac
 done
