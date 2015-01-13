@@ -14,14 +14,10 @@ has_died() {
     fi
 }
 
-find_pid() {
-    echo $(ps -elf | grep "$1" | grep -v '&&' | grep -v 'grep' | awk '{print $4}')
-}
-
 get_pid() {
-    pid=$(find_pid "$1")
+    pid=$(pgrep "$1")
     until [ -n "${pid}" ]; do
-	pid=$(find_pid "$1")
+	pid=$(pgrep "$1")
     done
     echo "${pid}"
 }
