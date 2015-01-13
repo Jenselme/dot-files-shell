@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-if [ -z "$1"  ] ; then
+if [[ -z "$1" ]] ; then
     echo "Not enough arguments. Pattern is required." >&2
     echo "cmd pattern [patchname]" >&2
     exit 1

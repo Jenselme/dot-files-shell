@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 stop_command() {
-    if [ "$1" ]; then
+    if (( "$1" > 1 )); then
 	kill "$1"
     fi
 }
