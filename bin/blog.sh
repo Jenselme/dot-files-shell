@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 stop_command() {
-    if (( "$1" > 1 )); then
+    if [[ -n "$1" ]] && (( "$1" > 1 )); then
 	kill "$1"
     fi
 }
@@ -35,12 +35,12 @@ serve_pid=''
 
 while true; do
     # Print errors for regenerate
-    if [ -n "${regenerate_pid}" ] && has_died "${regenerate_pid}"; then
+    if [[ -n "${regenerate_pid}" ]] && has_died "${regenerate_pid}"; then
 	echo -e "Regenerate has died with ouput:\n"
 	cat <&3
     fi
     # Print errors for serve
-    if [ -n "${serve_pid}" ] && has_died "${serve_pid}"; then
+    if [[ -n "${serve_pid}" ]] && has_died "${serve_pid}"; then
 	echo -e "Serve has died with ouput:\n"
 	cat <&4
     fi
@@ -52,12 +52,16 @@ while true; do
 	deploy)
 	    hg push > /dev/null
 	    hg push bitbucket >/dev/null
+	    if [[ -n "${serve_pid}" ]]; then
+		cat <&3 > /dev/null 2>&1
+	    fi
+	    if [[ -n "${regenerate_pid}" ]]; then
+		cat <&4 > /dev/null 2>&1
+	    fi
 	    stop_command "${serve_pid}"
 	    stop_command "${regenerate_pid}"
 	    serve_pid=''
 	    regenerate_pid=''
-	    cat <&3 > /dev/null 2>&1
-	    cat <&4 > /dev/null 2>&1
 	    make rsync_upload > /dev/null
 	    ;;
 	push)
