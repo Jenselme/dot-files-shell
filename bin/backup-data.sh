@@ -10,13 +10,13 @@ declare -A drsync_folders
 # rsync
 ## Videos
 rsync_folders["/run/media/jenselme/Data/Videos/"]="/run/media/jenselme/Backup_Data/Videos"
+## Pictures
+rsync_folders["/home/jenselme/Pictures/"]="/run/media/jenselme/Backup_Data/Pictures"
 
 
 # drsync
 ## VM
 drsync_folders["/run/media/jenselme/Data/VM/"]="/run/media/jenselme/Backup_Data/VM"
-## Pictures
-drsync_folders["/home/jenselme/Pictures/"]="/run/media/jenselme/Backup_Data/Pictures"
 ## Music
 drsync_folders["/home/jenselme/Music/"]="/run/media/jenselme/Backup_Data/Music"
 ## Archives
@@ -37,4 +37,3 @@ for folder in "${!drsync_folders[@]}"; do
     echo -e "${folder}"
     drsync "${folder}" "${drsync_folders[$folder]}"
 done
-
