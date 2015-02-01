@@ -16,5 +16,9 @@ MANPATH="$NPM_PACKAGES/share/man:$(manpath)"
 NODE_PATH="$NPM_PACKAGES/lib/node_modules:$NODE_PATH"
 export NPM_PACKAGES PATH MANPATH NODE_PATH
 
+# Chrome for karma
+CHROME_BIN=/usr/bin/chromium-browser
+export CHROME_BIN
+
 source ~/.aliases
 source ~/.functions
