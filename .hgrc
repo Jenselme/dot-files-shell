@@ -6,6 +6,8 @@ progress =
 pager =
 color =
 graphlog =
+hgext.bookmarks =
+hggit =
 
 [ui]
 username = Julien Enselme <jenselme@jujens.eu>
