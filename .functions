@@ -1,5 +1,9 @@
 #!/usr/bin/env bash
 
+ssh-tmux() {
+    ssh -t "$1" tmux
+}
+
 error_exit() {
     echo "$1" >&2
     exit "${2:-1}"
