@@ -1,3 +1,7 @@
+[alias]
+__mystatus = status
+st = !hg __mystatus $($HG root) $HG_ARGS
+
 [pager]
 pager = LESS='FRX' less
 
