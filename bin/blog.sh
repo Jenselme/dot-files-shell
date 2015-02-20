@@ -122,9 +122,14 @@ while true; do
 	    echo -e "\tpush"
 	    echo -e "\tserve"
 	    echo -e "\tregenerate"
+            echo -e "\tst|status"
+            echo -e "\tdiff"
+            echo -e "\tadd"
+            echo -e "\tci|commit"
 	    echo -e "\tstop serve"
 	    echo -e "\tstop regenerate"
 	    echo -e "\thelp"
+            echo -e "\tquit"
 	    ;;
 	*)
 	    if [ -n "${command}" ]; then
