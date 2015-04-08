@@ -23,8 +23,6 @@ drsync_folders["/home/jenselme/Music/"]="/run/media/jenselme/Backup_Data/Music"
 drsync_folders["/run/media/jenselme/Data/Archives/"]="/run/media/jenselme/Backup_Data/Archives"
 ## Downloads
 drsync_folders["/home/jenselme/Downloads/"]="/run/media/jenselme/Backup_Data/Downloads"
-## Android
-drsync_folders["/home/jenselme/android/"]="/run/media/jenselme/Backup_Data/android"
 ## Books
 drsync_folders["/home/jenselme/Livres/"]="/run/media/jenselme/Backup_Data/Livres"
 
