@@ -50,11 +50,15 @@ while true; do
 
     case "${command}" in
 	deploy)
+	    echo 'Pushing to jujens.eu'
 	    hg push > /dev/null
+	    echo 'Pushing to bitbucket'
 	    hg push bitbucket >/dev/null
+	    echo 'Killing serve pid'
 	    if [[ -n "${serve_pid}" ]]; then
 		cat <&3 > /dev/null 2>&1
 	    fi
+	    echo 'Killing regenerate pid'
 	    if [[ -n "${regenerate_pid}" ]]; then
 		cat <&4 > /dev/null 2>&1
 	    fi
@@ -62,6 +66,7 @@ while true; do
 	    stop_command "${regenerate_pid}"
 	    serve_pid=''
 	    regenerate_pid=''
+	    echo 'Rsync'
 	    make rsync_upload > /dev/null
 	    ;;
 	push)
