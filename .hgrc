@@ -12,6 +12,7 @@ color =
 graphlog =
 hgext.bookmarks =
 hggit =
+fetch =
 
 [ui]
 username = Julien Enselme <jenselme@jujens.eu>
