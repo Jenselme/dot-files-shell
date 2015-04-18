@@ -13,6 +13,7 @@ graphlog =
 hgext.bookmarks =
 hggit =
 fetch =
+mq =
 
 [ui]
 username = Julien Enselme <jenselme@jujens.eu>
