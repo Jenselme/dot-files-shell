@@ -1,5 +1,9 @@
 #!/usr/bin/env bash
 
+timestamp() {
+    date +"%s"
+}
+
 ssh-tmux() {
     ssh -t "$1" tmux
 }
