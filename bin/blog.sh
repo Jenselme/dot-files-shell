@@ -55,15 +55,15 @@ while true; do
 	    echo 'Pushing to bitbucket'
 	    hg push bitbucket >/dev/null
 	    echo 'Killing serve pid'
+	    stop_command "${serve_pid}"
 	    if [[ -n "${serve_pid}" ]]; then
-		cat <&3 > /dev/null 2>&1
-	    fi
-	    echo 'Killing regenerate pid'
-	    if [[ -n "${regenerate_pid}" ]]; then
 		cat <&4 > /dev/null 2>&1
 	    fi
-	    stop_command "${serve_pid}"
+	    echo 'Killing regenerate pid'
 	    stop_command "${regenerate_pid}"
+	    if [[ -n "${regenerate_pid}" ]]; then
+		cat <&3 > /dev/null 2>&1
+	    fi
 	    serve_pid=''
 	    regenerate_pid=''
 	    echo 'Rsync'
