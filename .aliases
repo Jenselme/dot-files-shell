@@ -1,5 +1,5 @@
 #!/usr/bin/bash
-alias em="emacs -nw"
+alias em="emacsclient -nw"
 alias me="emacs --no-init-file --no-site-file --load ~/.emacs.d/minimal.el"
 alias mem="me -nw"
 alias nanow="nano -w"
