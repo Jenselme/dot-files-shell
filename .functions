@@ -56,7 +56,7 @@ reenable_drupal_module() {
 
 # Copy a file $1 to jenselme:~/html/visible/$2
 cp-to-ecm-visible() {
-  scp "$1" "jenselme@sas1.centrale-marseille.fr:~/html/visible/$2"
+  scp "$1" "jenselme:~/html/visible/$2"
 }
 
 # Send the GIT_* env variables in an SSH session
