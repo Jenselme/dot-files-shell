@@ -36,10 +36,23 @@
 ehthumbs.db
 Thumbs.db
 
+# Python #
+#########
+*.pyc
+*.pyo
+*.egg-info
+.eggs
+.cache
+__pycache__
+.venv
+.coverage
+htmlcov
+
 # Other #
 #########
 *~
 nbproject
+nb-configuration.xml
 .idea
 customs.json
 *.iml
