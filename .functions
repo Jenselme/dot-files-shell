@@ -54,6 +54,15 @@ reenable_drupal_module() {
   drush -y en "$1"
 }
 
+# Copy SPEC and SRPM to ecm-visible
+cp-fed-review() {
+    pkg_name=${1%*.spec}
+    cp-to-ecm-visible "${pkg_name}.spec" SPECS/
+    for SRPM in ~/rpmbuild/SRPMS/${pkg_name}*.src.rpm; do
+        cp-to-ecm-visible "${SRPM}" SRPMS/
+    done
+}
+
 # Copy a file $1 to jenselme:~/html/visible/$2
 cp-to-ecm-visible() {
   scp "$1" "jenselme:~/html/visible/$2"

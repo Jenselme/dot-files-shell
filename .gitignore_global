@@ -48,6 +48,10 @@ __pycache__
 .coverage
 htmlcov
 
+# node #
+########
+node_modules
+
 # Other #
 #########
 *~
@@ -56,3 +60,4 @@ nb-configuration.xml
 .idea
 customs.json
 *.iml
+.project
