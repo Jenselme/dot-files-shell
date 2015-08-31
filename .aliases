@@ -3,6 +3,7 @@ alias em="emacsclient -nw"
 alias me="emacs --no-init-file --no-site-file --load ~/.emacs.d/minimal.el"
 alias mem="me -nw"
 alias nanow="nano -w"
+alias pep="pep8 --max-line-length 99"
 
 alias ll="ls -lh"
 alias la="ls -a"
