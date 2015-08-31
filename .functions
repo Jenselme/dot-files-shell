@@ -1,5 +1,9 @@
 #!/usr/bin/env bash
 
+git-update-upstream() {
+    git co master && git fetch upstream master && git rebase upstream/master
+}
+
 geoportal-start() {
     sc-start postgresql httpd searchd tomcat && cd ~/Stage3A/geo-api3 && make serve
 }
