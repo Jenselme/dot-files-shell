@@ -67,10 +67,11 @@ reenable_drupal_module() {
 
 # Copy SPEC and SRPM to ecm-visible
 cp-fed-review() {
-    pkg_name=${1%*.spec}
-    cp-to-ecm-visible "${pkg_name}.spec" SPECS/
-    for SRPM in ~/rpmbuild/SRPMS/${pkg_name}*.src.rpm; do
-        cp-to-ecm-visible "${SRPM}" SRPMS/
+    cwd=$(pwd)
+    pkg_name=${cwd##*/}
+    scp "${pkg_name}.spec" blog_jujens_eu:dl/SPECS/
+    for SRPM in ./*.src.rpm; do
+        scp "${SRPM}" blog_jujens_eu:dl/SRPMS/
     done
 }
 
