@@ -5,7 +5,7 @@ git-update-upstream() {
 }
 
 geoportal-start() {
-    sc-start postgresql httpd searchd tomcat && cd ~/Stage3A/geo-api3 && make serve
+    sc-start postgresql httpd searchd tomcat && cd ~/Work/geo-api3 && make serve
 }
 
 cwd-rpmbuild() {
