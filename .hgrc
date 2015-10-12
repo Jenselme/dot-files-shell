@@ -6,19 +6,21 @@ st = !hg __mystatus $($HG root) $HG_ARGS
 pager = LESS='FRX' less
 
 [extensions]
+purge =
 progress =
 pager =
 color =
 graphlog =
 hgext.bookmarks =
 hggit =
+histedit = 
 fetch =
 mq =
 rebase =
 
 [ui]
 username = Julien Enselme <jenselme@jujens.eu>
-editor = nano
+editor = emacsclient -nw
 ignore = ~/.hgignore
 
 [progress]
