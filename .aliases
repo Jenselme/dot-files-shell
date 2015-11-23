@@ -4,6 +4,7 @@ alias me="emacs --no-init-file --no-site-file --load ~/.emacs.d/minimal.el"
 alias mem="me -nw"
 alias nanow="nano -w"
 alias pep="pep8 --max-line-length 99"
+alias realtime="/usr/bin/time -f \"\t%e Elapsed Real Time (secs)\""
 
 alias ll="ls -lh"
 alias la="ls -a"
@@ -15,3 +16,11 @@ alias robot="ssh clubrobot"
 alias scv-notebook="simplecv notebook"
 alias ipy-notebook="ipython notebook"
 alias ipy-notebook3="ipython3 notebook"
+
+alias httpserve="python3 -m http.server"
+alias ssh-force-pwd="ssh -o PubkeyAuthentication=no"
+
+# rpm
+alias rpm-whatprovides="rpm -q --whatprovides"
+alias rpm-package-provides="rpm -qp --provides"
+alias rpm-package-info="rpm -qip"
