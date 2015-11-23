@@ -67,3 +67,4 @@ customs.json
 #######
 *.lock
 
+.nb-gradle/
