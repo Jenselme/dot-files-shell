@@ -45,7 +45,7 @@ ZSH_CUSTOM=~/.oh-my-zsh-custom
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git common-aliases gitfast git-extras pip pyenv python sudo systemd)
+plugins=(git common-aliases gitfast git-extras pip pyenv python sudo systemd zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -80,3 +80,19 @@ fi
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 source /home/jenselme/.profile
+
+
+# Manuel
+function manuel_tasks {
+    compls=$(manuel list)
+
+    if [[ $? -eq 0 ]]; then
+        completions=(${=compls})
+        compadd -- $completions
+        return 0
+    else
+        return 1
+    fi
+}
+
+compdef manuel_tasks manuel
