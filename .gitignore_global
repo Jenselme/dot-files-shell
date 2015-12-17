@@ -52,6 +52,7 @@ htmlcov
 # node #
 ########
 node_modules
+jspm_packages
 
 # Other #
 #########
