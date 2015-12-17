@@ -1,11 +1,26 @@
 #!/usr/bin/env bash
 
+git-log-line() {
+    # From http://mvidner.blogspot.ch/2015/11/git-single-line-history.html
+    local file="$1"; shift
+    local line="$1"; shift
+    git log --format='format:%H' "${file}" |
+        while read commit_id; do
+            echo -n "${commit_id}:${file}:${line}:"
+            git show "${commit_id}:${file}" | sed -n "$line{p; q}"
+        done | less
+}
+
 git-update-upstream() {
     git co master && git fetch upstream master && git rebase upstream/master
 }
 
 geoportal-start() {
     sc-start postgresql httpd searchd tomcat && cd ~/Work/geo-api3 && make serve
+}
+
+geoportal-update-mapinfra-data() {
+    rsync -avh -P -h --stats --no-o --no-g --delete  -e "ssh -l sit_dev -o PubkeyAuthentication=no" sit_dev@dumbo:/sigeom/sit_dev/sit/mapinfra/data/ /run/media/jenselme/WDATA/sigeom/mapinfra/data/
 }
 
 cwd-rpmbuild() {
