@@ -27,6 +27,10 @@ drsync_folders["/run/media/jenselme/Data/Archives/"]="/run/media/jenselme/Backup
 drsync_folders["/home/jenselme/Downloads/"]="/run/media/jenselme/Backup_2TB/Downloads"
 ## Books
 drsync_folders["/home/jenselme/Livres/"]="/run/media/jenselme/Backup_2TB/Livres"
+## Projects
+drsync_folders["/home/jenselme/projects/"]="/run/media/jenselme/Backup_2TB/projects"
+## tests
+drsync_folders["/home/jenselme/tests"]="/run/media/jenselme/Backup_2TB/tests"
 
 for folder in "${!rsync_folders[@]}"; do
     echo -e "${folder}"
