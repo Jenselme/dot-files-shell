@@ -17,6 +17,7 @@ histedit =
 fetch =
 mq =
 rebase =
+shelve =
 
 [ui]
 username = Julien Enselme <jenselme@jujens.eu>
