@@ -30,7 +30,9 @@ drsync_folders["/home/jenselme/Livres/"]="/run/media/jenselme/Backup_2TB/Livres"
 ## Projects
 drsync_folders["/home/jenselme/projects/"]="/run/media/jenselme/Backup_2TB/projects"
 ## tests
-drsync_folders["/home/jenselme/tests"]="/run/media/jenselme/Backup_2TB/tests"
+drsync_folders["/home/jenselme/tests/"]="/run/media/jenselme/Backup_2TB/tests"
+## Work
+drsync_folders["/home/jenselme/Work/"]="/run/media/jenselme/Backup_2TB/Work"
 
 for folder in "${!rsync_folders[@]}"; do
     echo -e "${folder}"
