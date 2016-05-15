@@ -16,10 +16,11 @@ usage() {
 unset JRE_HOME JAVA_BINDIR JAVA_HOME SDK_HOME JDK_HOME JAVA_ROOT
 export JAVA_HOME=/usr/java/jdk1.7.0_79
 export ANT_HOME=/usr/share/ant/
-export ANT_OPTS="-Xmx1024m -XX:MaxPermSize=192m -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=/tmp/antdump.txt -Dcluster.config=python"
+export ANT_OPTS="-Xmx2048m -XX:MaxPermSize=384m -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=/tmp/antdump.txt -Dcluster.config=python"
 
 clean=false
 build=false
+test_nb=false
 build_python=true
 
 while getopts "cbpnh" opt; do
@@ -32,13 +33,15 @@ while getopts "cbpnh" opt; do
             build_python=true;;
         n)
             build_python=false;;
+        t)
+            test_nb=true;;
 	h)
 	    usage; exit 0;;
     esac
 done
 shift $((OPTIND-1))
 
-if [ -z "$1" ]; then
+if [[ -z "$1" && ! -d  "./nbbuild" ]]; then
     cd ~/projects/netbeans
 else
     cd "$1"
@@ -50,6 +53,7 @@ if "${clean}"; then
     echo > /tmp/ant_clean
     echo > /tmp/ant_mainbuild
     echo > /tmp/ant_pythonbuild
+    echo > /tmp/ant_testnb
     ant clean > /tmp/ant_clean 2>&1 || error_exit "ant clean failed"
 fi
 
@@ -61,4 +65,9 @@ fi
 if "${build_python}"; then
     echo "build python"
     ant -Dcluster.config=python build > /tmp/ant_pythonbuild  2>&1 || error_exit "ant -Dcluster.config=python build failed"
+fi
+
+if "${test_nb}"; then
+    echo "Test nb"
+    ant -Dtest.config=commit -Dcontinue.after.failing.tests=true -f o.n.core/build.xml test > /tmp/ant_testnb 2>&1 || exit_error "ant -Dtest.config=commit -Dcontinue.after.failing.tests=true -f o.n.core/build.xml test failed"
 fi
