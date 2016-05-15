@@ -53,20 +53,22 @@ htmlcov
 ########
 node_modules
 jspm_packages
+jsconfig.json
 
 # Other #
 #########
 *~
 nbproject
+.nb-gradle
+private
 nb-configuration.xml
 .idea
 customs.json
 *.iml
 .project
+.vscode
 
 
 # Rust #
 #######
 *.lock
-
-.nb-gradle/
