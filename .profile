@@ -1,12 +1,13 @@
 #!/usr/bin/bash
 
-PATH=/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/sbin:/home/jenselme/bin:/home/jenselme/android/android-sdk-linux/tools:/home/jenselme/android/android-ndk-r10c:/home/jenselme/IDE/netbeans/netbeans-8.0/bin:/home/jenselme/IDE/idea-IU-135.1289/bin/
-export PATH
+# Android
+export ANDROID_HOME=/home/jenselme/Data/android-sdk-linux
+export ANDROID_SDK="${ANDROID_HOME}"
+#export ANDROID_NDK="/opt/software/android-ndk"
+export ANDROID_PLATFORM_TOOLS="$ANDROID_SDK/platform-tools"
 
-# NDK config (for android native apps)
-NDK_PATH=/home/jenselme/android/android-ndk-r10c
-NDKROOT=$NDK_PATH
-export NDK_PATH NDKROOT
+PATH=/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/sbin:/home/jenselme/bin:"${ANDROID_HOME}/tools":"${ANDROID_HOME}/platform-tools"
+export PATH
 
 # NPM
 NPM_PACKAGES="$HOME/.npm-packages"
@@ -19,6 +20,11 @@ export NPM_PACKAGES PATH MANPATH NODE_PATH
 # Chrome for karma
 CHROME_BIN=/usr/bin/chromium-browser
 export CHROME_BIN
+
+# Python
+WORKON_HOME=~/.virtualenvs
+export WORKON_HOME
+source /usr/bin/virtualenvwrapper.sh
 
 source ~/.aliases
 source ~/.functions
