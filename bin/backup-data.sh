@@ -19,6 +19,10 @@ drsync_folders["/run/media/jenselme/Multimedia/Videos/"]="/run/media/jenselme/Ba
 drsync_folders["/run/media/jenselme/Multimedia/Jeux Videos/"]="/run/media/jenselme/Backup_2TB/Jeux Videos"
 ## VM
 drsync_folders["/run/media/jenselme/Data/VM/"]="/run/media/jenselme/Backup_2TB/VM"
+## Android
+drsync_folders["/run/media/jenselme/Data/android-sdk-linux/"]="/run/media/jenselme/Backup_2TB/android-sdk-linux"
+## Projects data
+drsync_folders["/run/media/jenselme/Data/projects-data/"]="/run/media/jenselme/Backup_2TB/projects-data"
 ## Music
 drsync_folders["/home/jenselme/Music/"]="/run/media/jenselme/Backup_2TB/Music"
 ## Archives
@@ -33,6 +37,8 @@ drsync_folders["/home/jenselme/projects/"]="/run/media/jenselme/Backup_2TB/proje
 drsync_folders["/home/jenselme/tests/"]="/run/media/jenselme/Backup_2TB/tests"
 ## Work
 drsync_folders["/home/jenselme/Work/"]="/run/media/jenselme/Backup_2TB/Work"
+## Fedora
+drsync_folders["/home/jenselme/fedora-scm/"]="/run/media/jenselme/Backup_2TB/fedora-scm"
 
 for folder in "${!rsync_folders[@]}"; do
     echo -e "${folder}"
