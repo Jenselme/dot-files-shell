@@ -23,7 +23,6 @@
 # Logs and databases #
 ######################
 *.log
-*.sql
 *.sqlite
 
 # OS generated files #
@@ -67,6 +66,9 @@ customs.json
 *.iml
 .project
 .vscode
+cgi-bin
+*.e4p
+.eric6project/
 
 
 # Rust #
