@@ -15,8 +15,9 @@ usage() {
 
 unset JRE_HOME JAVA_BINDIR JAVA_HOME SDK_HOME JDK_HOME JAVA_ROOT
 export JAVA_HOME=/usr/java/jdk1.7.0_79
+# export JAVA_HOME=/usr/lib/jvm/java/
 export ANT_HOME=/usr/share/ant/
-export ANT_OPTS="-Xmx2048m -XX:MaxPermSize=384m -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=/tmp/antdump.txt -Dcluster.config=python"
+export ANT_OPTS="-Xmx2048m -XX:MaxPermSize=384m -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=/tmp/antdump.txt"
 
 clean=false
 build=false
