@@ -12,7 +12,6 @@ pager =
 color =
 graphlog =
 hgext.bookmarks =
-hggit =
 histedit = 
 fetch =
 mq =
