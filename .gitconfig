@@ -7,6 +7,8 @@
        	oops = commit --amend --no-edit
         st = status -sb
         zut = commit -a --amend --no-edit
+        # See http://megakemp.com/2016/08/25/git-undo/
+	undo = "!f() { \\\n    git reset --hard $(git rev-parse --abbrev-ref HEAD)@{${1-1}}; \\\n}; f"
 
 [color]
         diff = auto
@@ -35,9 +37,11 @@
         default = simple
 
 [user]
-        name = Julien Enselme
+	name = Julien Enselme
         email = julien.enselme@centrale-marseille.fr
 
 [i18n]
         logoutputencoding = utf8
         commitencoding = utf8
+[gui]
+	editor = gvim
