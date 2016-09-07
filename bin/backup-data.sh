@@ -39,6 +39,8 @@ drsync_folders["/home/jenselme/tests/"]="/run/media/jenselme/Backup_2TB/tests"
 drsync_folders["/home/jenselme/Work/"]="/run/media/jenselme/Backup_2TB/Work"
 ## Fedora
 drsync_folders["/home/jenselme/fedora-scm/"]="/run/media/jenselme/Backup_2TB/fedora-scm"
+## PlayOnLinux
+drsync_folders["/run/media/jenselme/Data/PlayOnLinux/"]="/run/media/jenselme/Backup_2TB/PlayOnLinux"
 
 for folder in "${!rsync_folders[@]}"; do
     echo -e "${folder}"
