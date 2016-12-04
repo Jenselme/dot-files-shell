@@ -9,6 +9,9 @@
         zut = commit -a --amend --no-edit
         # See http://megakemp.com/2016/08/25/git-undo/
 	undo = "!f() { \\\n    git reset --hard $(git rev-parse --abbrev-ref HEAD)@{${1-1}}; \\\n}; f"
+	please = push --force-with-lease
+	it = !git init && git commit -m “root” --allow-empty
+	merc = merge --no-ff
 
 [color]
         diff = auto
