@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+set -u
+set -e
+
 error_exit() {
     echo "$1" >&2
     exit "${2:-1}"
@@ -14,10 +17,9 @@ usage() {
 }
 
 unset JRE_HOME JAVA_BINDIR JAVA_HOME SDK_HOME JDK_HOME JAVA_ROOT
-export JAVA_HOME=/usr/java/jdk1.7.0_79
-# export JAVA_HOME=/usr/lib/jvm/java/
+export JAVA_HOME=/usr/lib/jvm/java/
 export ANT_HOME=/usr/share/ant/
-export ANT_OPTS="-Xmx2048m -XX:MaxPermSize=384m -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=/tmp/antdump.txt"
+export ANT_OPTS="-Xmx3072m -XX:MaxPermSize=1024m -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=/tmp/antdump.txt -Dcluster.config=python"
 
 clean=false
 build=false
@@ -42,10 +44,10 @@ while getopts "cbpnh" opt; do
 done
 shift $((OPTIND-1))
 
-if [[ -z "$1" && ! -d  "./nbbuild" ]]; then
+if [[ -z "${1:-}" && ! -d  "./nbbuild" ]]; then
     cd ~/projects/netbeans
 else
-    cd "$1"
+    cd "${1:-}"
 fi
 
 if "${clean}"; then
