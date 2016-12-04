@@ -6,6 +6,7 @@
 *.exe
 *.o
 *.so
+.precomp
 
 # Packages #
 ############
@@ -19,6 +20,7 @@
 *.rar
 *.tar
 *.zip
+*.src.rpm
 
 # Logs and databases #
 ######################
@@ -47,6 +49,10 @@ __pycache__
 venv
 .coverage
 htmlcov
+.tox
+.testmondata
+build
+dist
 
 # node #
 ########
