@@ -1,5 +1,41 @@
 #!/usr/bin/env bash
 
+svotass-deploy() {
+    set -e
+    cd /home/jenselme/Work/svotass-api && workon svotass && ./setup.py test && git push
+    cd /home/jenselme/Work/svotass-front && npm run test && npm run build && git push
+    knock -v obione.ioda.net 1779:tcp
+    ssh obione "cd svotass/svotass-front/ && \
+    	git pull && \
+    	cd ../svotass-api/ && \
+    	git pull && \
+    	./manuel deploy"
+    cd /home/jenselme/Work/svotass-front
+    rsync -a --delete --info=progress2 dist obione:svotass/svotass-front/
+    knock -v obione.ioda.net 1778:tcp
+    set +e
+}
+
+dk-get-pid() {
+     docker inspect -f {{.State.Pid}} "$1"
+}
+
+dk-enter() {
+    sudo nsenter --target $(dk-get-pid "$1") --mount --uts --ipc --net --pid
+}
+
+dk-rm-stopped() {
+    docker ps -a | grep -E '(Exited|Dead)' | awk '{print $1}' | xargs --no-run-if-empty docker rm
+}
+
+dk-rmi-none() {
+     docker images | grep '^<none>' | awk '{print $3}' | xargs --no-run-if-empty docker rmi
+}
+
+dk-clean() {
+    dk-rm-stopped && dk-rmi-none
+}
+
 cp-pi() {
     cp "$@" ~pi/Videos
     chown -R jenselme:pi ~pi/Videos/*
@@ -58,7 +94,7 @@ geoportal-demo-connect() {
 }
 
 geoportal-start() {
-    sc-start postgresql httpd searchd tomcat postfix && cd ~/Work/geo-api3 && manuel serve
+    sc-start postgresql httpd searchd@ioda-infra searchd@customer-infra searchd@sigeom-infra postfix
 }
 
 geoportal-update-mapinfra-data() {
@@ -74,7 +110,7 @@ geoportal-update-db() {
     local database="${2:-sit_dev}"
     local host="${3:-localhost}"
     if [[ "${dump}" == "true" ]]; then
-        geoportal-dump-prod-db
+        echo geoportal-dump-prod-db
     fi
     psql -h "${host}" -d postgres -U sit_dba <<EOF
 -- Kill all db connexions
@@ -109,7 +145,7 @@ EOF
         return 0
     fi
 
-    pg_restore -h "${host}" -d "${database}" -U sit_dba --jobs 4 /tmp/sit_dev_full.backup
+    pg_restore -h "${host}" -d "${database}" -U sit_dba --jobs 4 "$1"
 }
 
 geoportal-update-db-geofedora() {
