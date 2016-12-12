@@ -19,7 +19,7 @@ usage() {
 unset JRE_HOME JAVA_BINDIR JAVA_HOME SDK_HOME JDK_HOME JAVA_ROOT
 export JAVA_HOME=/usr/lib/jvm/java/
 export ANT_HOME=/usr/share/ant/
-export ANT_OPTS="-Xmx3072m -XX:MaxPermSize=1024m -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=/tmp/antdump.txt -Dcluster.config=python"
+export ANT_OPTS="-Xmx6072m -XX:MaxPermSize=3024m -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=/tmp/antdump.txt -Dcluster.config=python"
 
 clean=false
 build=false
@@ -45,7 +45,7 @@ done
 shift $((OPTIND-1))
 
 if [[ -z "${1:-}" && ! -d  "./nbbuild" ]]; then
-    cd ~/projects/netbeans
+    cd ~/Projects/netbeans
 else
     cd "${1:-}"
 fi

@@ -11,7 +11,7 @@ fi
 unset JRE_HOME JAVA_BINDIR JAVA_HOME SDK_HOME JDK_HOME JAVA_ROOT
 export JAVA_HOME=/usr/lib/jvm/java/
 export ANT_HOME=/usr/share/ant/
-export ANT_OPTS="-Xmx2048m -XX:MaxPermSize=384m -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=/tmp/antdump.txt -Dcluster.config=python"
+export ANT_OPTS="-Xmx6048m -XX:MaxPermSize=3384m -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=/tmp/antdump.txt -Dcluster.config=python"
 
 hg revert -a
 for patchfile in ../netbeans-releases-patch/*.patch; do
@@ -21,8 +21,8 @@ done
 
 pushd contrib
     hg revert -a
-    if ls ~/projects/nb-patches/jen-rel/*.patch 2> /dev/null; then
-    	for patchfile in ~/projects/nb-patches/jen-rel/*.patch; do
+    if ls ~/Projects/nb-patches/jen-rel/*.patch 2> /dev/null; then
+    	for patchfile in ~/Projects/nb-patches/jen-rel/*.patch; do
         	echo "Applying patch on contrib: ${patchfile}"
         	patch -p1 < "${patchfile}"
     	done
