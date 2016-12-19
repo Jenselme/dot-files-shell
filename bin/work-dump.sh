@@ -12,7 +12,7 @@ function main {
     echo "Saving dbs"
     for db in "${!dbs[@]}"; do
         echo "$db"
-        pg_dump -h 127.0.0.1 -p 5432 -d "${db}" -U "${dbs[$db]}" -f ~/Seafile/Exchange/Work/db/$db.backup --format c
+        pg_dump -h 127.0.0.1 -p 5432 -d "${db}" -U "${dbs[$db]}" -f ~/Seafile/Work/db/$db.backup --format c
     done
 }
 
