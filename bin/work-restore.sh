@@ -14,7 +14,7 @@ function main {
         echo "$db"
 	psql -U postgres <<< "DROP DATABASE IF EXISTS ${db};
             CREATE DATABASE ${db} OWNER ${dbs[$db]};"
-        pg_restore -h 127.0.0.1 -p 5432 -d "${db}" -U postgres ~/Seafile/Exchange/db/$db.backup
+        pg_restore -h 127.0.0.1 -p 5432 -d "${db}" -U postgres ~/Seafile/Work/db/$db.backup
     done
 }
 
