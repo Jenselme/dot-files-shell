@@ -7,16 +7,8 @@ alias drsync="rsync --delete"
 declare -A rsync_folders
 declare -A drsync_folders
 
-# rsync
-## Pictures
-rsync_folders["/home/jenselme/Pictures/"]="/run/media/jenselme/Backup_2TB/Pictures"
-
 
 # drsync
-## Videos
-drsync_folders["/run/media/jenselme/Multimedia/Videos/"]="/run/media/jenselme/Backup_2TB/Videos"
-## Jeux Vidéos
-drsync_folders["/run/media/jenselme/Multimedia/Jeux Videos/"]="/run/media/jenselme/Backup_2TB/Jeux Videos"
 ## VM
 drsync_folders["/run/media/jenselme/Data/VM/"]="/run/media/jenselme/Backup_2TB/VM"
 ## Android
@@ -39,8 +31,6 @@ drsync_folders["/home/jenselme/tests/"]="/run/media/jenselme/Backup_2TB/tests"
 drsync_folders["/home/jenselme/Work/"]="/run/media/jenselme/Backup_2TB/Work"
 ## Fedora
 drsync_folders["/home/jenselme/fedora-scm/"]="/run/media/jenselme/Backup_2TB/fedora-scm"
-## PlayOnLinux
-drsync_folders["/run/media/jenselme/Data/PlayOnLinux/"]="/run/media/jenselme/Backup_2TB/PlayOnLinux"
 
 for folder in "${!rsync_folders[@]}"; do
     echo -e "${folder}"
