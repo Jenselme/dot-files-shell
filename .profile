@@ -6,7 +6,7 @@ export ANDROID_SDK="${ANDROID_HOME}"
 #export ANDROID_NDK="/opt/software/android-ndk"
 export ANDROID_PLATFORM_TOOLS="$ANDROID_SDK/platform-tools"
 
-PATH=/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/sbin:/home/jenselme/bin:"${ANDROID_HOME}/tools":"${ANDROID_HOME}/platform-tools":~/.perl6/bin:~/.cargo/bin
+PATH=/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/sbin:/home/jenselme/bin:"${ANDROID_HOME}/tools":"${ANDROID_HOME}/platform-tools":~/.perl6/bin:~/.cargo/bin:~/.local/bin
 export PATH
 
 # NPM
