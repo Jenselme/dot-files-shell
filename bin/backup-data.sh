@@ -24,7 +24,7 @@ drsync_folders["/home/jenselme/Downloads/"]="/run/media/jenselme/Backup_2TB/Down
 ## Books
 drsync_folders["/home/jenselme/Livres/"]="/run/media/jenselme/Backup_2TB/Livres"
 ## Projects
-drsync_folders["/home/jenselme/projects/"]="/run/media/jenselme/Backup_2TB/projects"
+drsync_folders["/home/jenselme/Projects/"]="/run/media/jenselme/Backup_2TB/projects"
 ## tests
 drsync_folders["/home/jenselme/tests/"]="/run/media/jenselme/Backup_2TB/tests"
 ## Work
