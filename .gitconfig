@@ -12,6 +12,7 @@
 	please = push --force-with-lease
 	it = !git init && git commit -m “root” --allow-empty
 	merc = merge --no-ff
+	last = describe --abbrev=0 --tags --match "v[0-9]*" origin
 
 [color]
         diff = auto
