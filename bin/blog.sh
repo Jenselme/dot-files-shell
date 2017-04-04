@@ -89,6 +89,9 @@ while true; do
 	    read commit_msg
 	    hg ci -m "${commit_msg}"
 	    ;;
+	fetch)
+	    hg fetch
+	    ;;
 	serve)
 	    if [ -n "${serve_pid}" ] && ! has_died "${serve_pid}"; then
 		echo "Serve is already running."
