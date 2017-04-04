@@ -22,6 +22,7 @@ get_pid() {
     echo "${pid}"
 }
 
+
 # Activate venv
 cd ~/server/blog/
 source bin/activate
@@ -47,6 +48,10 @@ while true; do
 
     echo -en "(blog) > "
     read command
+    # Quit on ^D
+    if [[ "$?" == 1 ]]; then
+        break;
+    fi
 
     case "${command}" in
 	deploy)
