@@ -13,6 +13,8 @@
 	it = !git init && git commit -m “root” --allow-empty
 	merc = merge --no-ff
 	last = describe --abbrev=0 --tags --match "v[0-9]*" origin
+	prune = fetch --prune
+	stash-all = stash save --include-untracked
 
 [color]
         diff = auto
@@ -39,6 +41,7 @@
 
 [push]
         default = simple
+        followTags = true
 
 [user]
 	name = Julien Enselme
@@ -49,3 +52,9 @@
         commitencoding = utf8
 [gui]
 	editor = gvim
+
+[merge]
+       conflictstyle = diff3
+
+[status]
+       showUntrackedFiles = all
