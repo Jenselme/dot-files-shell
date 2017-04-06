@@ -98,11 +98,11 @@ geoportal-start() {
 }
 
 geoportal-update-mapinfra-data() {
-    rsync -avh -P -h --stats --no-o --no-g --delete  -e "ssh -l sit_dev -o PubkeyAuthentication=no" sit_dev@dumbo:/sigeom/sit_dev/sit/mapinfra/data/ /run/media/jenselme/WDATA/sigeom/mapinfra/data/
+    rsync -avh -P -h --stats --no-o --no-g --delete  -e "ssh -l sit_dev -o PubkeyAuthentication=no" sit_dev@dumbo:/sigeom/sit_dev/sit/sigeom-infra/data/ /run/media/jenselme/WDATA/sigeom/mapinfra/data/
 }
 
 geoportal-dump-prod-db() {
-    cd ~/Work/mapinfra && manuel db-dump "pg.disney.interne" "sit_dev" "/tmp/sit_dev_full.backup"
+    cd ~/Work/geo-infra && manuel db-dump "pg.disney.interne" "sit_dev" "/tmp/sit_dev_full.backup"
 }
 
 geoportal-update-db() {
