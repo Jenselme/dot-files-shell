@@ -8,6 +8,7 @@ function main {
     dbs[botta]=botta
     dbs[jenselme]=jenselme
     dbs[waffle_dev]=waffle_dba
+    dbs[wfs]=tinyows
 
     echo "Saving dbs"
     for db in "${!dbs[@]}"; do
