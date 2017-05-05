@@ -1,5 +1,20 @@
 #!/usr/bin/env bash
 
+pdf-compress() {
+    local input="$1"
+    local output="${2:-compressed.pdf}"
+
+    gs -sDEVICE=pdfwrite \
+       -dDownsampleColorImages=true \
+       -dColorImageResolution=150 \
+       -dCompatibilityLevel=1.4 \
+       -dNOPAUSE \
+       -dQUIET \
+       -dBATCH \
+       -sOutputFile="${output}" \
+       "${input}"
+}
+
 svotass-deploy() {
     set -e
     cd /home/jenselme/Work/svotass-api && workon svotass && ./setup.py test && git push
