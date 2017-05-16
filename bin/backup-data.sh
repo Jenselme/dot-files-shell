@@ -11,18 +11,10 @@ declare -A drsync_folders
 # drsync
 ## Projects data
 drsync_folders["/run/media/jenselme/Data/projects-data/"]="/run/media/jenselme/Backup_2TB/projects-data"
-## Music
-drsync_folders["/home/jenselme/Music/"]="/run/media/jenselme/Backup_2TB/Music"
-## Downloads
-drsync_folders["/home/jenselme/Downloads/"]="/run/media/jenselme/Backup_2TB/Downloads"
 ## Books
 drsync_folders["/home/jenselme/Livres/"]="/run/media/jenselme/Backup_2TB/Livres"
-## Projects
-drsync_folders["/home/jenselme/Projects/"]="/run/media/jenselme/Backup_2TB/projects"
 ## tests
 drsync_folders["/home/jenselme/tests/"]="/run/media/jenselme/Backup_2TB/tests"
-## Fedora
-drsync_folders["/home/jenselme/fedora-scm/"]="/run/media/jenselme/Backup_2TB/fedora-scm"
 
 # Compture specific
 case $(hostname -s) in
@@ -30,10 +22,15 @@ case $(hostname -s) in
         drsync_folders["/mnt/data/jenselme/VM/"]="/run/media/jenselme/Backup_2TB/VM_Baley"
         drsync_folders["/mnt/data/jenselme/Jeux Videos/"]="/run/media/jenselme/Backup_2TB/Jeux Videos"
         drsync_folders["/mnt/data/jenselme/Archives/"]="/run/media/jenselme/Backup_2TB/Archives"
+        drsync_folders["/home/jenselme/Downloads/"]="/run/media/jenselme/Backup_2TB/Downloads_Baley"
+        drsync_folders["/home/jenselme/Projects/"]="/run/media/jenselme/Backup_2TB/Projects_Baley"
+        drsync_folders["/home/jenselme/fedora-scm/"]="/run/media/jenselme/Backup_2TB/fedora-scm_Baley"
         ;;
     fastolfe)
         drsync_folders["/run/media/jenselme/Data/VM/"]="/run/media/jenselme/Backup_2TB/VM"
-        drsync_folders["/run/media/jenselme/Data/Archives/"]="/run/media/jenselme/Backup_2TB/Archives"
+        drsync_folders["/home/jenselme/Downloads/"]="/run/media/jenselme/Backup_2TB/Downloads_Fastolfe"
+        drsync_folders["/home/jenselme/Projects/"]="/run/media/jenselme/Backup_2TB/Projects_Fastolfe"
+        drsync_folders["/home/jenselme/fedora-scm/"]="/run/media/jenselme/Backup_2TB/fedora-scm_Fastolfe"
         ;;
 esac
 
