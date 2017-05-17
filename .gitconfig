@@ -53,8 +53,5 @@
 [gui]
 	editor = gvim
 
-[merge]
-       conflictstyle = diff3
-
 [status]
        showUntrackedFiles = all
