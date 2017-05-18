@@ -15,22 +15,6 @@ pdf-compress() {
        "${input}"
 }
 
-svotass-deploy() {
-    set -e
-    cd /home/jenselme/Work/svotass-api && workon svotass && ./setup.py test && git push
-    cd /home/jenselme/Work/svotass-front && npm run test && npm run build && git push
-    knock -v obione.ioda.net 1779:tcp
-    ssh obione "cd svotass/svotass-front/ && \
-    	git pull && \
-    	cd ../svotass-api/ && \
-    	git pull && \
-    	./manuel deploy"
-    cd /home/jenselme/Work/svotass-front
-    rsync -a --delete --info=progress2 dist obione:svotass/svotass-front/
-    knock -v obione.ioda.net 1778:tcp
-    set +e
-}
-
 dk-get-pid() {
      docker inspect -f {{.State.Pid}} "$1"
 }
@@ -62,19 +46,6 @@ aot-static-sync() {
     rsync * aot:~/static/ -P -S -r --delete
 }
 
-ioda-git-clone() {
-    git clone "$1"
-    repo="$1"
-    repo_name=$(echo ${repo#*/})
-    repo_folder=$(echo ${repo_name%.*})
-    cd ${repo_folder}
-    ioda-git-config
-}
-
-ioda-git-config() {
-    git config user.email 'julien.enselme@ioda.net'
-}
-
 git-log-line() {
     # From http://mvidner.blogspot.ch/2015/11/git-single-line-history.html
     local file="$1"; shift
@@ -90,86 +61,10 @@ git-update-upstream() {
     git co master && git fetch upstream master && git rebase upstream/master
 }
 
-mapwork-sync() {
-    knock -v obione.ioda.net 6116:tcp 7227:udp 5335:tcp 9449:udp
-    rsync -avh -P -h --stats --delete -o PubkeyAuthentication=no . mapworker@obione.ioda.net:~/public
-    knock -v obione.ioda.net 4994:tcp 3553:udp 2772:tcp 1661:udp
-}
-
-mapwork-connect() {
-    knock -v obione.ioda.net 6116:tcp 7227:udp 5335:tcp 9449:udp
-    ssh mapwork
-    knock -v obione.ioda.net 4994:tcp 3553:udp 2772:tcp 1661:udp
-}
-
-geoportal-demo-connect() {
-    knock -v g.ioda.net 1789:tcp
-    ssh geop@g.ioda.net
-    knock -v g.ioda.net 1788:tcp
-}
-
-geoportal-start() {
-    sc-start postgresql httpd searchd@ioda-infra searchd@customer-infra searchd@sigeom-infra postfix
-}
-
-geoportal-update-mapinfra-data() {
-    rsync -avh -P -h --stats --no-o --no-g --delete  -e "ssh -l sit_dev -o PubkeyAuthentication=no" sit_dev@dumbo:/sigeom/sit_dev/sit/sigeom-infra/data/ /run/media/jenselme/WDATA/sigeom/mapinfra/data/
-}
-
-geoportal-dump-prod-db() {
-    cd ~/Work/geo-infra && manuel db-dump "pg.disney.interne" "sit_dev" "/tmp/sit_dev_full.backup"
-}
-
-geoportal-update-db() {
-    local dump="${1:-true}"
-    local database="${2:-sit_dev}"
-    local host="${3:-localhost}"
-    if [[ "${dump}" == "true" ]]; then
-        echo geoportal-dump-prod-db
-    fi
-    psql -h "${host}" -d postgres -U sit_dba <<EOF
--- Kill all db connexions
-SELECT pg_terminate_backend(pg_stat_activity.pid)
-FROM pg_stat_activity
-WHERE datname = '${database}'
-  AND pid <> pg_backend_pid();
-
-DROP DATABASE IF EXISTS ${database};
-EOF
-    ret=$?
-    if [[ "${ret}" != 0 ]]; then
-        echo 'drop failed'
-        return 1
-    fi
-    psql -h "${host}" -d postgres -U sit_dba  <<EOF
-CREATE DATABASE ${database}
-  WITH OWNER = sit_dba
-       ENCODING = 'UTF8'
-       TABLESPACE = pg_default
-       LC_COLLATE = 'fr_CH.UTF-8'
-       LC_CTYPE = 'fr_CH.UTF-8'
-       CONNECTION LIMIT = -1
-       TEMPLATE template0;;
-
-ALTER DATABASE ${database}
-  SET search_path = userdata, public, pg_catalog;
-EOF
-    ret=$?
-    if [[ "${ret}" != 0 ]]; then
-        echo "create failed"
-        return 0
-    fi
-
-    pg_restore -h "${host}" -d "${database}" -U sit_dba --jobs 4 "$1"
-}
-
-geoportal-update-db-geofedora() {
-    geoportal-update-db false sit_prod geofedora
-}
-
 cwd-rpmbuild() {
     rpmbuild --define "_sourcedir $(pwd)" --define "_specdir $(pwd)" --define "_builddir $(pwd)" --define "_srcrpmdir $(pwd)" --define "_rpmdir $(pwd)" "$@"
 }
+
 timestamp() {
     date +"%s"
 }
