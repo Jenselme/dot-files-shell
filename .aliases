@@ -8,6 +8,8 @@ alias flake="python3-flake8 --max-line-length 99"
 alias mytox="tox --skip-missing-interpreters"
 alias realtime="/usr/bin/time -f \"\t%e Elapsed Real Time (secs)\""
 alias npms="npm --silent"
+alias dk="docker"
+alias dkc="docker-compose"
 
 alias ll="ls -lh"
 alias la="ls -a"
