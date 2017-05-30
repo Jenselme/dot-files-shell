@@ -23,6 +23,11 @@ dk-enter() {
     sudo nsenter --target $(dk-get-pid "$1") --mount --uts --ipc --net --pid
 }
 
+dk-gc() {
+    dk-rm-stopped
+    dk-rmi-none
+}
+
 dk-rm-stopped() {
     docker ps -a | grep -E '(Exited|Dead)' | awk '{print $1}' | xargs --no-run-if-empty docker rm
 }
