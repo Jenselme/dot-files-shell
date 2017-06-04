@@ -22,6 +22,7 @@ shelve =
 username = Julien Enselme <jenselme@jujens.eu>
 editor = emacsclient -nw
 ignore = ~/.hgignore
+merge = internal:merge
 
 [progress]
 delay = 1
