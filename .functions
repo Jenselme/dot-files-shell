@@ -19,8 +19,12 @@ dk-get-pid() {
      docker inspect -f {{.State.Pid}} "$1"
 }
 
-dk-enter() {
+dk-nsenter() {
     sudo nsenter --target $(dk-get-pid "$1") --mount --uts --ipc --net --pid
+}
+
+dk-enter() {
+    docker exec -it "$1" "${2:-/bin/bash}"
 }
 
 dk-gc() {
