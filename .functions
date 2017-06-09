@@ -70,6 +70,10 @@ git-update-upstream() {
     git co master && git fetch upstream master && git rebase upstream/master
 }
 
+git-update-origin() {
+    git co master && git pull
+}
+
 cwd-rpmbuild() {
     rpmbuild --define "_sourcedir $(pwd)" --define "_specdir $(pwd)" --define "_builddir $(pwd)" --define "_srcrpmdir $(pwd)" --define "_rpmdir $(pwd)" "$@"
 }
