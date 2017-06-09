@@ -72,7 +72,7 @@ yum install -y scilab scilab-doc 2>> install.log
 
 ####			programmation, dével
 # divers
-yum install -y meld geany git git-cola unar mercurial vim 2>> install.log
+yum install -y meld geany git gitk git-cola unar mercurial vim 2>> install.log
 # Virtualisation
 yum install -y VirtualBox virt-manager libvirt libvirt-daemon-kvm qemu-system-arm qemu-user
 # mysql
@@ -93,6 +93,8 @@ yum install -y qt-creator PyQt4 PyQt4-devel qscintilla-python qscintilla-devel 2
 yum install -y eric spyder ninja-ide python3-ipython
 # Computer vision
 #yum install -y simplecv
+# Docker
+yum install -y docker docker-compose
 
 
 
