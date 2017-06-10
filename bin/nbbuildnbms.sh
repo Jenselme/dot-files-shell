@@ -21,14 +21,13 @@ done
 
 pushd contrib
     hg revert -a
-    if ls ~/Projects/nb-patches/jen-rel/*.patch 2> /dev/null; then
-    	for patchfile in ~/Projects/nb-patches/jen-rel/*.patch; do
+    if ls ../../nb-patches/jen-rel/*.patch 2> /dev/null; then
+    	for patchfile in ../../nb-patches/jen-rel/*.patch; do
         	echo "Applying patch on contrib: ${patchfile}"
         	patch -p1 < "${patchfile}"
     	done
     fi
 popd
-
 
 rm -rf nbbuild/nbms
 ant -Dcluster.config=python build-nonsigned-nbms
