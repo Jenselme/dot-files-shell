@@ -9,12 +9,19 @@
         zut = commit -a --amend --no-edit
         # See http://megakemp.com/2016/08/25/git-undo/
 	undo = "!f() { \\\n    git reset --hard $(git rev-parse --abbrev-ref HEAD)@{${1-1}}; \\\n}; f"
+	# See: https://technosorcery.net/blog/2012/08/updated-git-rebase-interactive-autosquash-commit-preparation/
+	fixup = !sh -c 'git commit --fixup=$1' -
+	fixa = !sh -c 'git commit -a --fixup=$1' -
+	# See: https://technosorcery.net/blog/2012/08/updated-git-rebase-interactive-autosquash-commit-preparation/
+	ri = rebase --interactive --autosquash
 	please = push --force-with-lease
 	it = !git init && git commit -m “root” --allow-empty
 	merc = merge --no-ff
 	last = describe --abbrev=0 --tags --match "v[0-9]*" origin
 	prune = fetch --prune
 	stash-all = stash save --include-untracked
+	wontchange = update-index --assume-unchanged
+	willchange = update-index --no-assume-unchanged
 
 [color]
         diff = auto
