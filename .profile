@@ -31,6 +31,10 @@ PERL6LIB="inst#~/.perl6/"
 source ~/.aliases
 source ~/.functions
 
+if [[ -f ~/.fns-specifics ]]; then
+    source ~/.fns-specifics
+fi
+
 
 # Rust
 export RUST_SRC_PATH="/home/jenselme/.cargo/rust/src"
