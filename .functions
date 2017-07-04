@@ -55,6 +55,11 @@ aot-static-sync() {
     rsync * aot:~/static/ -P -S -r --delete
 }
 
+git-clean-branches() {
+    # From https://stackoverflow.com/questions/6127328/how-can-i-delete-all-git-branches-which-have-been-merged
+    git branch --merged | egrep -v "(^\*|master|dev)" | xargs git branch -d
+}
+
 git-log-line() {
     # From http://mvidner.blogspot.ch/2015/11/git-single-line-history.html
     local file="$1"; shift
