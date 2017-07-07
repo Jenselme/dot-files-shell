@@ -76,6 +76,7 @@ cgi-bin
 *.e4p
 .eric6project/
 docker-compose.override.yml
+composer.phar
 
 
 # Rust #
