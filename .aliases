@@ -10,6 +10,7 @@ alias realtime="/usr/bin/time -f \"\t%e Elapsed Real Time (secs)\""
 alias npms="npm --silent"
 alias dk="docker"
 alias dkc="docker-compose"
+alias composer="php ~/.php/composer.phar"
 
 alias ll="ls -lh"
 alias la="ls -a"
