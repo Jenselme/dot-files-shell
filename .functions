@@ -32,8 +32,26 @@ dk-gc() {
     dk-rmi-none
 }
 
+dk-rm-created() {
+    echo 'Removing all containers with status created'
+    dk ps -a -q --filter status=created | xargs --no-run-if-empty docker rm
+}
+
 dk-rm-stopped() {
-    docker ps -a | grep -E '(Exited|Dead)' | awk '{print $1}' | xargs --no-run-if-empty docker rm
+    echo 'Removing all stopped containers'
+    dk ps -a -q --filter status=exited | xargs --no-run-if-empty docker rm
+}
+
+dk-rm-errored() {
+   echo 'Removing all containers that stopped with an error code'
+   comm -3 \
+   <(docker ps -a -q --filter=status=exited | sort) \
+   <(docker ps -a -q --filter=exited=0 | sort) | xargs --no-run-if-empty docker rm
+}
+
+dk-rm-exited() {
+    echo 'Removing all containers that stopped as expected'
+    docker ps -a -q --filter=exited=0 | xargs --no-run-if-empty docker rm
 }
 
 dk-rmi-none() {
