@@ -32,6 +32,11 @@ dk-gc() {
     dk-rmi-none
 }
 
+dk-rm-all() {
+    echo 'Removing all containers'
+    dk ps -a -q | xargs --no-run-if-empty docker rm
+}
+
 dk-rm-created() {
     echo 'Removing all containers with status created'
     dk ps -a -q --filter status=created | xargs --no-run-if-empty docker rm
