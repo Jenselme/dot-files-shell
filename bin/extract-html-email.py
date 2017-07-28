@@ -14,9 +14,12 @@ for path in glob(join(path, '*.mbox')):
     with open(path, 'r') as mail_file:
         message = mboxMessage(mail_file.read())
 
-    content = message.get_payload()[0]
-    html = content.get_payload(decode=True).decode('utf-8')
-    html = html.replace('charset=iso-8859-1', 'charset=utf-8')
+    content = message.get_payload()
+    if isinstance(content, str):
+        html = message.get_payload(decode=True).decode('utf-8')
+    else:
+        html = content[0].get_payload(decode=True).decode('utf-8')
+        html = html.replace('charset=iso-8859-1', 'charset=utf-8')
 
     file_name, _ = splitext(path)
     with open(f'{file_name}.html', 'w') as html_file:
