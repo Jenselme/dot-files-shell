@@ -1,5 +1,29 @@
 #!/usr/bin/env bash
 
+gpgcrypt() {
+    if [[ -z "$1" ]]; then
+	echo "You must supply an argument"
+	return 1
+    elif [[ -d "$1" ]]; then
+        zip -r "$1.zip" "$1"
+        gpg --output "$1.zip.gpg" --symmetric "$1.zip"
+    else
+	gpg --output "$1.gpg" --symmetric "$1"
+    fi
+}
+
+gpgdecrypt() {
+    if [[ -z "$1" ]]; then
+        echo "You must supply an argument"
+        return 1
+    else
+        gpg --output "${1%.*}" --decrypt "$1"
+        if [[ "$(file --mime-type --brief certs-old.zip)" == 'application/zip' ]]; then
+	    unzip "${1%.*}"
+	fi
+    fi
+}
+
 pdf-compress() {
     local input="$1"
     local output="${2:-compressed.pdf}"
