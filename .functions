@@ -18,7 +18,7 @@ gpgdecrypt() {
         return 1
     else
         gpg --output "${1%.*}" --decrypt "$1"
-        if [[ "$(file --mime-type --brief certs-old.zip)" == 'application/zip' ]]; then
+        if [[ "$(file --mime-type --brief "${1%.*}")" == 'application/zip' ]]; then
 	    unzip "${1%.*}"
 	fi
     fi
