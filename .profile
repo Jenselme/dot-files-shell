@@ -41,4 +41,4 @@ export RUST_SRC_PATH="/home/jenselme/.cargo/rust/src"
 
 
 # Go
-export GOPATH="/home/jenselme/tests/go"
+export GOPATH="/home/jenselme/Projects/go"
