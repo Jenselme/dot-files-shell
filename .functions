@@ -105,6 +105,8 @@ aot-static-sync() {
 git-clean-branches() {
     # From https://stackoverflow.com/questions/6127328/how-can-i-delete-all-git-branches-which-have-been-merged
     git branch --merged | egrep -v "(^\*|master|dev)" | xargs git branch -d
+    # From https://stackoverflow.com/questions/7726949/remove-local-branches-no-longer-on-remote
+    git remote prune origin
 }
 
 git-log-line() {
