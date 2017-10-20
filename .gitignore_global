@@ -75,7 +75,7 @@ customs.json
 cgi-bin
 *.e4p
 .eric6project/
-docker-compose.override.yml
+*.override.yml
 composer.phar
 
 
