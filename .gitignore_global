@@ -77,6 +77,7 @@ cgi-bin
 .eric6project/
 *.override.yml
 composer.phar
+docker/data
 
 
 # Rust #
