@@ -56,9 +56,7 @@ while true; do
     case "${command}" in
 	deploy)
 	    echo 'Pushing to jujens.eu'
-	    hg push > /dev/null
-	    echo 'Pushing to bitbucket'
-	    hg push bitbucket >/dev/null
+	    git push --quiet
 	    echo 'Killing serve pid'
 	    stop_command "${serve_pid}"
 	    if [[ -n "${serve_pid}" ]]; then
@@ -75,27 +73,26 @@ while true; do
 	    make rsync_upload > /dev/null
 	    ;;
 	push)
-	    hg push > /dev/null
-	    hg push bitbucket > /dev/null
+	    git push --quiet
 	    ;;
 	st|status)
-	    hg st
+	    git st
 	    ;;
 	diff)
-	    hg diff
+	    git diff
 	    ;;
 	add)
 	    echo "Enter the filename to add (. for all files)"
 	    read file_name
-	    hg add "${file_name}"
+	    git add "${file_name}"
 	    ;;
 	ci|commit)
 	    echo "Please enter the commit message:"
 	    read commit_msg
-	    hg ci -m "${commit_msg}"
+	    git ci -am "${commit_msg}"
 	    ;;
-	fetch)
-	    hg fetch
+	pull)
+	    git pull --quiet
 	    ;;
 	serve)
 	    if [ -n "${serve_pid}" ] && ! has_died "${serve_pid}"; then
