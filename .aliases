@@ -32,3 +32,8 @@ alias rpm-whatprovides="rpm -q --whatprovides"
 alias rpm-package-provides="rpm -qp --provides"
 alias rpm-package-info="rpm -qip"
 alias rpm-package-requires="rpm -qp --requires"
+
+# Docker
+## Simply date, hide hostname, view only from last boot, all fields including long for unit docker.
+## Filty by tag or container name with docker-logs CONTAINER_TAGS=my-tag
+alias dk-logs="sudo journalctl -o short --no-hostname -b --all -u docker"
