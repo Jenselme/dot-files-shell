@@ -17,6 +17,7 @@ fetch =
 mq =
 rebase =
 shelve =
+evolve =
 
 [ui]
 username = Julien Enselme <jenselme@jujens.eu>
