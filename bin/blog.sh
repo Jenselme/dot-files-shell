@@ -23,10 +23,10 @@ get_pid() {
 }
 
 
-# Activate venv
-cd ~/server/blog/
-source bin/activate
-cd pelican/jujens.eu
+# switch to proper directory
+# Cannot use pipenv shell here since it will spawn a new ZSH shell.
+cd ~/server/www.jujens.eu
+source ~/.virtualenvs/www.jujens.eu-LdYwh5Rz/bin/activate
 
 regenerate_pid=''
 serve_pid=''
