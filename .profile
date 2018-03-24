@@ -42,3 +42,7 @@ export RUST_SRC_PATH="/home/jenselme/.cargo/rust/src"
 
 # Go
 export GOPATH="/home/jenselme/Projects/go"
+
+
+# Docker
+export DOCKERHOST=$(ip -4 addr show docker0 | grep --only-matching -P 'inet \K[\d.]+')
