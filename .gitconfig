@@ -17,6 +17,7 @@
 	please = push --force-with-lease
 	it = !git init && git commit -m “root” --allow-empty
 	merc = merge --no-ff
+	merf = merge --ff-only
 	last = describe --abbrev=0 --tags --match "v[0-9]*" origin
 	prune = fetch --prune
 	stash-all = stash save --include-untracked
@@ -29,7 +30,7 @@
         branch = auto
 
 [core]
-        editor = emacsclient -nw
+        editor = nano
         excludesfile = /home/jenselme/.gitignore_global
         quotepath = off
 
