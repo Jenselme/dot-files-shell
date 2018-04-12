@@ -51,6 +51,7 @@ venv
 htmlcov
 .tox
 .testmondata
+.pytest_cache
 build
 dist
 
