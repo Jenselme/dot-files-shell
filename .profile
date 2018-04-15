@@ -42,6 +42,7 @@ export RUST_SRC_PATH="/home/jenselme/.cargo/rust/src"
 
 # Go
 export GOPATH="/home/jenselme/Projects/go"
+PATH="$PATH:/home/jenselme/Projects/go/bin"
 
 
 # Docker
