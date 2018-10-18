@@ -59,7 +59,7 @@
         logoutputencoding = utf8
         commitencoding = utf8
 [gui]
-	editor = gvim
+	editor = gedit
 
 [status]
        showUntrackedFiles = all
