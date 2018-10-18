@@ -7,7 +7,7 @@ Drop all the mysql tables in database that starts with pattern.
 -h: host
 -u: user
 -pPASSWD: give password
--P: prompt for password
+-P: port
 "
 
 usage() {
@@ -29,7 +29,7 @@ do
 	p)
 	    passwd="$OPTARG"; pflag=true;;
 	P)
-	    Pflag=true;;
+	    port="$OPTARG"; Pflag=true;;
 	:)
 	    echo "Option -$OPTARG requires an argument." >&2
 	    usage; exit 1;;
@@ -60,13 +60,13 @@ if "$pflag"; then
     PASSWD="-p$passwd"
 fi
 if "$Pflag"; then
-    PASSWD="-p"
+    PORT="-P $port"
 fi
 if "$uflag"; then
     USER="-u $user"
 fi
 
-mysql="mysql $HOST $PASSWD $USER"
-for table in "$($mysql $1 -NBe "SHOW TABLES LIKE '$2%'")"; do
-    "$mysql" "$1" -e "DROP TABLE $table"
+mysql="mysql $HOST $PORT $PASSWD $USER"
+for table in $($mysql -P 3310 $1 -NBe "SHOW TABLES LIKE '$2%'"); do
+    $mysql "$1" -e "DROP TABLE $table"
 done
