@@ -38,6 +38,12 @@ ENABLE_CORRECTION="true"
 # The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
 # HIST_STAMPS="mm/dd/yyyy"
 
+# Configure zbell
+# Time in seconds the command must take to notify
+ZBELL_DURATION=60
+# Ignore these commands
+ZBELL_CMD_IGNORE=($EDITOR $PAGER git nano less emacs bash ssh su tmux zsh "pipenv shell" "python manage.py shell_plus")
+
 # Would you like to use another custom folder than $ZSH/custom?
 ZSH_CUSTOM=~/.oh-my-zsh-custom
 

@@ -28,6 +28,12 @@ autoload -Uz add-zsh-hook || return
 (( ${+zbell_duration} )) || zbell_duration=${ZBELL_DURATION:-15}
 
 # initialize zbell_ignore if not set
+if [[ ${#ZBELL_CMD_IGNORE} -gt 0 ]] && (( ! ${+zbell_ignore} )); then
+	zbell_ignore=()
+	for ignore_cmd in ${ZBELL_CMD_IGNORE[*]}; do
+		zbell_ignore+=("${ignore_cmd}")
+	done
+fi
 (( ${+zbell_ignore} )) || zbell_ignore=($EDITOR $PAGER)
 
 # initialize it because otherwise we compare a date and an empty string
@@ -45,14 +51,16 @@ zbell_begin() {
 # when it finishes, if it's been running longer than $zbell_duration,
 # and we dont have an ignored command in the line, then print a bell.
 zbell_end() {
+	if [[ -z "${zbell_lastcmd}" ]]; then
+		return
+	fi
+
 	time_run=$(( $EPOCHSECONDS - $zbell_timestamp ))
 	ran_long=$(( $EPOCHSECONDS - $zbell_timestamp >= $zbell_duration ))
 
 	has_ignored_cmd=0
-	for cmd in ${(s:;:)zbell_lastcmd//|/;}; do
-		words=(${(z)cmd})
-		util=${words[1]}
-		if (( ${zbell_ignore[(i)$util]} <= ${#zbell_ignore} )); then
+	for ignore_cmd in ${zbell_ignore[*]}; do
+		if [[ "${zbell_lastcmd}" == *"${ignore_cmd}"* ]]; then
 			has_ignored_cmd=1
 			break
 		fi
@@ -61,6 +69,8 @@ zbell_end() {
 	if (( ! $has_ignored_cmd )) && (( ran_long )); then
 		notify-send "'${zbell_lastcmd}' completed in ${time_run}"
 	fi
+	
+	zbell_lastcmd=""
 }
 
 # register the functions as hooks
