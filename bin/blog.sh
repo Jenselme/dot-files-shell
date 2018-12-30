@@ -26,13 +26,8 @@ get_pid() {
 # switch to proper directory
 # Cannot use pipenv shell here since it will spawn a new ZSH shell.
 cd ~/server/www.jujens.eu
-source ~/.virtualenvs/www.jujens.eu-LdYwh5Rz/bin/activate
 
-regenerate_pid=''
 serve_pid=''
-# These variables cannot be used. If you try to use them, you will get an error like 3< not found.
-#regenerate_output=3
-#serve_output=4
 
 while true; do
     # Print errors for regenerate
@@ -62,15 +57,9 @@ while true; do
 	    if [[ -n "${serve_pid}" ]]; then
 		cat <&4 > /dev/null 2>&1
 	    fi
-	    echo 'Killing regenerate pid'
-	    stop_command "${regenerate_pid}"
-	    if [[ -n "${regenerate_pid}" ]]; then
-		cat <&3 > /dev/null 2>&1
-	    fi
 	    serve_pid=''
-	    regenerate_pid=''
 	    echo 'Rsync'
-	    make rsync_upload > /dev/null
+	    pipenv run make rsync_upload > /dev/null
 	    ;;
 	push)
 	    git push --quiet
@@ -98,16 +87,8 @@ while true; do
 	    if [ -n "${serve_pid}" ] && ! has_died "${serve_pid}"; then
 		echo "Serve is already running."
 	    else
-		exec 4< <(make serve 2>&1)
+		exec 4< <(pipenv run make devserve 2>&1)
 		serve_pid=$(get_pid 'python3 -m pelican.server')
-	    fi
-	    ;;
-	regenerate)
-	    if [ -n "${regenerate_pid}" ] && ! has_died "${regenerate_pid}"; then
-		echo "Regenerate is already running." >&2
-	    else
-		exec 3< <(make regenerate 2>&1)
-		regenerate_pid=$(get_pid 'make regenerate')
 	    fi
 	    ;;
 	"stop serve")
@@ -115,13 +96,8 @@ while true; do
 	    serve_pid=''
 	    cat <&4 > /dev/null
 	    ;;
-	"stop regenerate")
-	    stop_command "${regenerate_pid}" > /dev/null
-	    regenerate_pid=''
-	    cat <&3 > /dev/null
-	    ;;
 	stop)
-	    echo "Stop requires an argument: serve or regenerate" >&2
+	    echo "Stop requires an argument: serve" >&2
 	    ;;
 	quit)
 	    break
