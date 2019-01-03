@@ -305,3 +305,37 @@ __EOF__
 	shift
     done
 }
+
+function git-show-br() {
+    git br | cat
+}
+
+function git-merf() {
+    branch_to_merge=$1
+    target_branch=${GIT_MERGE_DEFAULT_BRANCH:-${2:-master}}
+
+    if [[ -z "${branch_to_merge}" ]]; then
+        echo "You must specify a branch to merge" >&2
+        return 2
+    fi
+
+    echo "Merging ${branch_to_merge} into ${target_branch} in fast forward"
+    git co "${target_branch}"
+    git merf "${branch_to_merge}"
+    git br -d "${branch_to_merge}"
+}
+
+function git-merc() {
+    branch_to_merge=$1
+    target_branch=${GIT_MERGE_DEFAULT_BRANCH:-${2:-master}}
+
+    if [[ -z "${branch_to_merge}" ]]; then
+        echo "You must specify a branch to merge" >&2
+        return 2
+    fi
+
+    echo "Merging ${branch_to_merge} into ${target_branch} with merge comit"
+    git co "${target_branch}"
+    git merc "${branch_to_merge}"
+    git br -d "${branch_to_merge}"
+}
