@@ -312,7 +312,7 @@ function git-show-br() {
 
 function git-merf() {
     branch_to_merge=$1
-    target_branch=${GIT_MERGE_DEFAULT_BRANCH:-${2:-master}}
+    target_branch=${2:-${GIT_MERGE_DEFAULT_BRANCH:-master}}
 
     if [[ -z "${branch_to_merge}" ]]; then
         echo "You must specify a branch to merge" >&2
@@ -327,7 +327,7 @@ function git-merf() {
 
 function git-merc() {
     branch_to_merge=$1
-    target_branch=${GIT_MERGE_DEFAULT_BRANCH:-${2:-master}}
+    target_branch=${2:-${GIT_MERGE_DEFAULT_BRANCH:-master}}
 
     if [[ -z "${branch_to_merge}" ]]; then
         echo "You must specify a branch to merge" >&2
