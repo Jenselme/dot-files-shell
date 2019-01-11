@@ -65,9 +65,9 @@ export PATH="/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/sbin:/home/jenselme/bi
 
 # Preferred editor for local and remote sessions
 if [[ -n $SSH_CONNECTION ]]; then
-    export EDITOR='nano'
+    export EDITOR='micro'
 else
-    export EDITOR='nano'
+    export EDITOR='micro'
 fi
 
 # Compilation flags
