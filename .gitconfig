@@ -1,28 +1,28 @@
 [alias]
-        br = branch
-        cancel-merge = reset --merge ORIG_HEAD
-        ci = commit
-        co = checkout
-       	lg = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white)- %an%C(reset)' --all
-       	oops = commit --amend --no-edit
-        st = status -sb
-        zut = commit -a --amend --no-edit
-        # See http://megakemp.com/2016/08/25/git-undo/
-	undo = "!f() { \\\n    git reset --hard $(git rev-parse --abbrev-ref HEAD)@{${1-1}}; \\\n}; f"
-	# See: https://technosorcery.net/blog/2012/08/updated-git-rebase-interactive-autosquash-commit-preparation/
-	fixup = !sh -c 'git commit --fixup=$1 $2' -
-	fixa = !sh -c 'git commit -a --fixup=$1 $2' -
-	# See: https://technosorcery.net/blog/2012/08/updated-git-rebase-interactive-autosquash-commit-preparation/
-	ri = rebase --interactive --autosquash
-	please = push --force-with-lease
-	it = !git init && git commit -m “root” --allow-empty
-	merc = merge --no-ff
-	merf = merge --ff-only
-	last = describe --abbrev=0 --tags --match "v[0-9]*" origin
-	prune = fetch --prune
-	stash-all = stash save --include-untracked
-	wontchange = update-index --assume-unchanged
-	willchange = update-index --no-assume-unchanged
+    br = branch
+    cancel-merge = reset --merge ORIG_HEAD
+    ci = commit
+    co = checkout
+    lg = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white)- %an%C(reset)' --all
+    oops = commit --amend --no-edit
+    st = status -sb
+    zut = commit -a --amend --no-edit
+    # See http://megakemp.com/2016/08/25/git-undo/
+    undo = "!f() { \\\n    git reset --hard $(git rev-parse --abbrev-ref HEAD)@{${1-1}}; \\\n}; f"
+    # See: https://technosorcery.net/blog/2012/08/updated-git-rebase-interactive-autosquash-commit-preparation/
+    fixup = !sh -c 'git commit --fixup=$1 $2' -
+    fixa = !sh -c 'git commit -a --fixup=$1 $2' -
+    # See: https://technosorcery.net/blog/2012/08/updated-git-rebase-interactive-autosquash-commit-preparation/
+    ri = rebase --interactive --autosquash
+    please = push --force-with-lease
+    it = !git init && git commit -m “root” --allow-empty
+    merc = merge --no-ff
+    merf = merge --ff-only
+    last = describe --abbrev=0 --tags --match "v[0-9]*" origin
+    prune = fetch --prune
+    stash-all = stash save --include-untracked
+    wontchange = update-index --assume-unchanged
+    willchange = update-index --no-assume-unchanged
 
 [color]
         diff = auto
@@ -30,7 +30,7 @@
         branch = auto
 
 [core]
-        editor = nano
+        editor = micro
         excludesfile = /home/jenselme/.gitignore_global
         quotepath = off
 
@@ -52,14 +52,14 @@
         followTags = true
 
 [user]
-	name = Julien Enselme
+    name = Julien Enselme
         email = jenselme@jujens.eu
 
 [i18n]
         logoutputencoding = utf8
         commitencoding = utf8
 [gui]
-	editor = gedit
+    editor = gedit
 
 [status]
        showUntrackedFiles = all
@@ -68,7 +68,7 @@
 [include]
 path = ~/.gitconfig.local
 [filter "lfs"]
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
-	process = git-lfs filter-process
-	required = true
+    clean = git-lfs clean -- %f
+    smudge = git-lfs smudge -- %f
+    process = git-lfs filter-process
+    required = true
