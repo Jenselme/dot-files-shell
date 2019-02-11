@@ -13,6 +13,7 @@ alias dkc="docker-compose"
 alias composer="php ~/.php/composer.phar"
 alias gpu="git push -u origin \$(git symbolic-ref --short HEAD)"
 alias hgrep="history | grep -i --color=always"
+alias dja="django-admin"
 
 alias ll="ls -lh"
 alias la="ls -a"
@@ -38,3 +39,6 @@ alias rpm-package-requires="rpm -qp --requires"
 ## Simply date, hide hostname, view only from last boot, all fields including long for unit docker.
 ## Filty by tag or container name with docker-logs CONTAINER_TAGS=my-tag
 alias dk-logs="sudo journalctl -o short --no-hostname -b --all -u docker"
+
+# Git
+alias gpnv="git push --no-verify"
