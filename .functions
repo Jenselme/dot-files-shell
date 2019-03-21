@@ -311,8 +311,8 @@ function git-show-br() {
 }
 
 function git-merf() {
-    branch_to_merge=$(git symbolic-ref --short HEAD)
-    target_branch=${GIT_MERGE_DEFAULT_BRANCH:-master}
+    local branch_to_merge=$(git symbolic-ref --short HEAD)
+    local target_branch=${GIT_MERGE_DEFAULT_BRANCH:-master}
 
     while getopts "hb:t:" opt; do
         case "${opt}" in
@@ -340,15 +340,28 @@ function git-merf() {
 }
 
 function git-merc() {
-    branch_to_merge=$1
-    target_branch=${2:-${GIT_MERGE_DEFAULT_BRANCH:-master}}
+    local branch_to_merge=$(git symbolic-ref --short HEAD)
+    local target_branch=${GIT_MERGE_DEFAULT_BRANCH:-master}
 
-    if [[ -z "${branch_to_merge}" ]]; then
-        echo "You must specify a branch to merge" >&2
-        return 2
-    fi
+    while getopts "hb:t:" opt; do
+        case "${opt}" in
+            h|\?|\:)
+                echo "Specify branch to merge with -b (default ${branch_to_merge}) and target branch with -t (default ${target_branch})."
+                return 0
+                ;;
+            b)
+                branch_to_merge="${OPTARG}"
+                ;;
+            t)
+                target_branch="${OPTARG}"
+                ;;
+        esac
+    done
+    shift $((OPTIND-1))
 
     echo "Merging ${branch_to_merge} into ${target_branch} with merge comit"
+    read
+
     git co "${target_branch}"
     git merc "${branch_to_merge}"
     git br -d "${branch_to_merge}"
