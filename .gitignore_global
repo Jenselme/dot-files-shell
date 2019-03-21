@@ -79,6 +79,8 @@ cgi-bin
 *.override.yml
 composer.phar
 docker/data
+.env
+.envrc
 
 
 # Rust #
