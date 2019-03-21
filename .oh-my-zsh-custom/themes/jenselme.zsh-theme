@@ -1,7 +1,7 @@
 # Jenselme's ZSH Theme (inspired by AVIT ZSH Theme)
 
 PROMPT='
-$(_user_host)${_current_dir} $(git_prompt_info) $(hg_prompt_info) $(_ruby_version)
+$(_venv_info)$(_user_host)${_current_dir} $(git_prompt_info) $(hg_prompt_info) $(_ruby_version)
 ▶ '
 
 PROMPT2='%{$fg[grey]%}◀%{$reset_color%} '
@@ -11,6 +11,13 @@ RPROMPT='$(_vi_status)%{$(echotc UP 1)%}$(_git_time_since_commit) $(git_prompt_s
 local _current_dir="%{$fg[blue]%}%3~%{$reset_color%} "
 local _return_status="%{$fg[red]%}%(?..⍉)%{$reset_color%}"
 local _hist_no="%{$fg[grey]%}%h%{$reset_color%}"
+
+function _venv_info() {
+  if [[ -n "${VIRTUAL_ENV}" ]]; then
+    __venv_name=$(basename $VIRTUAL_ENV)
+    echo "(${__venv_name%%-*}) "
+  fi
+}
 
 function _user_host() {
   if [[ -n $SSH_CONNECTION ]]; then
