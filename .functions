@@ -354,10 +354,19 @@ function git-merc() {
     git br -d "${branch_to_merge}"
 }
 
+function git-show-br() {
+    git br | cat
+}
+
 function load-dotenv() {
     set -a; source ${1:-.env}; set +a
 }
 
 function show-pending-migrations() {
     python manage.py showmigrations | grep '\[ \]\|^[a-z]' | grep '[  ]' -B 1
+}
+
+function env2envrc() {
+    cat .env | grep -v -E '^\s*#' | grep -v '^\s*$' | awk '{print "export " $1}' > .envrc
+    direnv allow
 }
