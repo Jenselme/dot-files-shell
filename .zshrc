@@ -1,3 +1,4 @@
+#!/usr/bin/env zsh
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
 
@@ -102,3 +103,5 @@ function manuel_tasks {
 }
 
 compdef manuel_tasks manuel
+
+eval "$(direnv hook zsh)"
