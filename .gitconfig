@@ -31,6 +31,7 @@
         branch = auto
 
 [core]
+	attributesfile = ~/.gitattributes
         editor = micro
         excludesfile = /home/jenselme/.gitignore_global
         quotepath = off
@@ -69,11 +70,11 @@
 [include]
 	path = ~/.gitconfig.local
 
-[filter "lfs"]
-    clean = git-lfs clean -- %f
-    smudge = git-lfs smudge -- %f
-    process = git-lfs filter-process
-    required = true
-
 [cola]
 	spellcheck = true
+	expandtab = true
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
