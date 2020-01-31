@@ -13,6 +13,7 @@ alias dkc="docker-compose"
 alias composer="php ~/.php/composer.phar"
 alias gpu="git push -u origin \$(git symbolic-ref --short HEAD)"
 alias hgrep="history | grep -i --color=always"
+alias fd="/usr/bin/fd"
 
 alias ll="ls -lh"
 alias la="ls -a"
