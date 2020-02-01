@@ -1,10 +1,16 @@
 #!/usr/bin/bash
 
 # Android
-export ANDROID_HOME=/home/jenselme/Data/android-sdk-linux
-export ANDROID_SDK="${ANDROID_HOME}"
+#export ANDROID_HOME=/home/jenselme/Data/android-sdk-linux
+#export ANDROID_SDK="${ANDROID_HOME}"
 #export ANDROID_NDK="/opt/software/android-ndk"
-export ANDROID_PLATFORM_TOOLS="$ANDROID_SDK/platform-tools"
+#export ANDROID_PLATFORM_TOOLS="$ANDROID_SDK/platform-tools"
+
+export ANDROID_HOME=$HOME/Android/Sdk
+export PATH=$PATH:$ANDROID_HOME/emulator
+export PATH=$PATH:$ANDROID_HOME/tools
+export PATH=$PATH:$ANDROID_HOME/tools/bin
+export PATH=$PATH:$ANDROID_HOME/platform-tools
 
 PATH=/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/sbin:/home/jenselme/bin:"${ANDROID_HOME}/tools":"${ANDROID_HOME}/platform-tools":~/.perl6/bin:~/.cargo/bin:~/.local/bin
 export PATH
