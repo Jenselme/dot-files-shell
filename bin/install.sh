@@ -112,8 +112,3 @@ yum -y install powertop tuned 2>> install.log
 yum install -y emacs aspell aspell-fr aspell-de aspell-en 2>> install.log
 # autre
 yum install -y emacs-pymacs #python-jedi
-
-
-
-####			XFCE
-yum install -y fluxbox 2>> install.log
