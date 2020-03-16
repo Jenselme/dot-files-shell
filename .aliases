@@ -47,3 +47,6 @@ alias dk-logs="sudo journalctl -o short --no-hostname -b --all -u docker"
 
 # Git
 alias gpnv="git push --no-verify"
+
+# openSUSE
+alias zdup='sudo zypper -v dup --auto-agree-with-licenses --no-allow-vendor-change --replacefiles'
