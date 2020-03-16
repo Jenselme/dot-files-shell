@@ -29,7 +29,11 @@ export CHROME_BIN
 # Python
 WORKON_HOME=~/.virtualenvs
 export WORKON_HOME
-source /usr/bin/virtualenvwrapper.sh
+if [[ -f /usr/bin/virtualenvwrapper.sh ]]; then
+    source /usr/bin/virtualenvwrapper.sh
+elif [[ -f /usr/bin/virtualenvwrapper ]]; then
+    source /usr/bin/virtualenvwrapper
+fi
 
 # Perl6
 PERL6LIB="inst#~/.perl6/"
@@ -53,3 +57,8 @@ PATH="$PATH:/home/jenselme/Projects/go/bin"
 
 # Docker
 export DOCKERHOST=$(ip -4 addr show docker0 | grep --only-matching -P 'inet \K[\d.]+')
+
+# KDE
+if [[ -n "${KDE_FULL_SESSION}" ]]; then
+    export SSH_ASKPASS='/usr/bin/ksshaskpass'
+fi
