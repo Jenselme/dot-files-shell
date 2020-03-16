@@ -47,7 +47,7 @@
         abbrevCommit = true
 
 [pull]
-        rebase = preserve
+        rebase = merges
 
 [push]
         default = simple
