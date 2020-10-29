@@ -12,7 +12,7 @@ export PATH=$PATH:$ANDROID_HOME/tools
 export PATH=$PATH:$ANDROID_HOME/tools/bin
 export PATH=$PATH:$ANDROID_HOME/platform-tools
 
-PATH=/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/sbin:/home/jenselme/bin:"${ANDROID_HOME}/tools":"${ANDROID_HOME}/platform-tools":~/.perl6/bin:~/.cargo/bin:~/.local/bin
+PATH=/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/sbin:/home/$(whoami)/bin:"${ANDROID_HOME}/tools":"${ANDROID_HOME}/platform-tools":~/.perl6/bin:~/.cargo/bin:~/.local/bin
 export PATH
 
 # Node
@@ -47,12 +47,12 @@ fi
 
 
 # Rust
-export RUST_SRC_PATH="/home/jenselme/.cargo/rust/src"
+export RUST_SRC_PATH="/home/$(whoami)/.cargo/rust/src"
 
 
 # Go
-export GOPATH="/home/jenselme/Projects/go"
-PATH="$PATH:/home/jenselme/Projects/go/bin"
+export GOPATH="/home/$(whoami)/Projects/go"
+PATH="$PATH:/home/$(whoami)/Projects/go/bin"
 
 
 # Docker
