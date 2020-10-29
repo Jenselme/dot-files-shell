@@ -55,7 +55,7 @@
 
 [user]
     name = Julien Enselme
-        email = jenselme@jujens.eu
+	email = jenselme@jujens.eu
 
 [i18n]
         logoutputencoding = utf8
