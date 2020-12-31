@@ -9,8 +9,6 @@ declare -A drsync_folders
 
 
 # drsync
-## Projects data
-drsync_folders["/run/media/jenselme/Data/projects-data/"]="/run/media/jenselme/Backup_2TB/projects-data"
 ## Books
 drsync_folders["/home/jenselme/Livres/"]="/run/media/jenselme/Backup_2TB/Livres"
 ## tests
@@ -25,12 +23,6 @@ case $(hostname -s) in
         drsync_folders["/home/jenselme/Downloads/"]="/run/media/jenselme/Backup_2TB/Downloads_Baley"
         drsync_folders["/home/jenselme/Projects/"]="/run/media/jenselme/Backup_2TB/Projects_Baley"
         drsync_folders["/home/jenselme/fedora-scm/"]="/run/media/jenselme/Backup_2TB/fedora-scm_Baley"
-        ;;
-    fastolfe)
-        drsync_folders["/run/media/jenselme/Data/VM/"]="/run/media/jenselme/Backup_2TB/VM"
-        drsync_folders["/home/jenselme/Downloads/"]="/run/media/jenselme/Backup_2TB/Downloads_Fastolfe"
-        drsync_folders["/home/jenselme/Projects/"]="/run/media/jenselme/Backup_2TB/Projects_Fastolfe"
-        drsync_folders["/home/jenselme/fedora-scm/"]="/run/media/jenselme/Backup_2TB/fedora-scm_Fastolfe"
         ;;
 esac
 
