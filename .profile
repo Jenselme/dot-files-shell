@@ -34,6 +34,8 @@ if [[ -f /usr/bin/virtualenvwrapper.sh ]]; then
 elif [[ -f /usr/bin/virtualenvwrapper ]]; then
     source /usr/bin/virtualenvwrapper
 fi
+export PATH="$HOME/.poetry/bin:$PATH"
+export PYTHONBREAKPOINT="pudb.set_trace"
 
 # Perl6
 PERL6LIB="inst#~/.perl6/"
