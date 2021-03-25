@@ -393,3 +393,11 @@ gdrive-download() {
     wget --load-cookies /tmp/cookies.txt "https://drive.google.com/uc?export=download&confirm=${CONFIRM}&id=${file_id}" -O "${file}"
     rm -rf /tmp/cookies.txt
 }
+
+function encode-k8s-secret() {
+    echo -n "$1" | base64 -w 0
+}
+
+function decode-k8s-secret() {
+    echo -n "$1" | base64 -d
+}
