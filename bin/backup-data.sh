@@ -22,7 +22,6 @@ case $(hostname -s) in
         drsync_folders["/mnt/data/jenselme/Archives/"]="/run/media/jenselme/Backup_2TB/Archives"
         drsync_folders["/home/jenselme/Downloads/"]="/run/media/jenselme/Backup_2TB/Downloads_Baley"
         drsync_folders["/home/jenselme/Projects/"]="/run/media/jenselme/Backup_2TB/Projects_Baley"
-        drsync_folders["/home/jenselme/fedora-scm/"]="/run/media/jenselme/Backup_2TB/fedora-scm_Baley"
         ;;
 esac
 
