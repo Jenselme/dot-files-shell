@@ -16,6 +16,7 @@ function backup() {
             --full-if-older-than=1M \
             --asynchronous-upload \
             --s3-use-glacier \
+            --progress \
             --encrypt-key=${DUPLICITY_GPG_ENCRYPT_KEY} \
             --sign-key=${DUPLICTIY_GPG_SIGN_KEY} \
             ${extra_args[@]} \
@@ -71,6 +72,22 @@ function restore() {
         "${restore_to}"
 }
 
+function archive() {
+    local path_to_save="$1"
+    local dest="${archives[$path_to_save]}"
+
+    echo "Saving ${path_to_save} to ${dest}"
+    duplicity full \
+        --s3-use-glacier \
+        --asynchronous-upload \
+        --progress \
+        --encrypt-key=${DUPLICITY_GPG_ENCRYPT_KEY} \
+        --sign-key=${DUPLICTIY_GPG_SIGN_KEY} \
+        "${path_to_save}" \
+        "${SCW_BUCKET}/${dest}"
+    duplicity remove-all-but-n-full 1 --force "${SCW_BUCKET}/${dest}"
+}
+
 if [[ $# -ne 1 ]]; then
     echo "Illegal number of parameters. Use -h to view help." >&2
     exit 1
@@ -80,6 +97,7 @@ while getopts "hbdvlcr:a:" opt; do
     case "${opt}" in
         h|\?)
             echo "Use -h for help, -b for backup, -d for dry run backup, -v for verify, -l to list, -c to clean up old and -r URL to restore. Will do for all backed up locations."
+            echo "You can also use -a PATH to backup an archived path than doesn't change often."
             ;;
         b)
             backup
@@ -98,5 +116,9 @@ while getopts "hbdvlcr:a:" opt; do
             ;;
         r)
             restore $OPTARG
+            ;;
+        a)
+            archive $OPTARG
+            ;;
     esac
 done
