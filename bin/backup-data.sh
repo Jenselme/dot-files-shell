@@ -35,3 +35,5 @@ for folder in "${!drsync_folders[@]}"; do
     echo -e "${folder}"
     drsync "${folder}" "${drsync_folders[$folder]}"
 done
+
+backup-to-cold-storage.sh -c
