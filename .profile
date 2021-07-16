@@ -64,3 +64,7 @@ export DOCKERHOST=$(ip -4 addr show docker0 | grep --only-matching -P 'inet \K[\
 if [[ -n "${KDE_FULL_SESSION}" ]]; then
     export SSH_ASKPASS='/usr/bin/ksshaskpass'
 fi
+
+# Enable anacron.
+# To force execution, use anacron -t ~/.config/anachron -S $HOME/.local/share/var/spool/anacron -nf
+anacron -t ~/.config/anachron -S $HOME/.local/share/var/spool/anacron

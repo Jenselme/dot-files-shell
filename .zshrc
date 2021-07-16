@@ -133,4 +133,3 @@ _yargs_completions()
 }
 complete -F _yargs_completions nps
 ###-end-nps-completions-###
-
