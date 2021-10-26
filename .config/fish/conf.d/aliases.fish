@@ -1,0 +1,51 @@
+alias em="emacsclient -nw"
+alias me="emacs --no-init-file --no-site-file --load ~/.emacs.d/minimal.el"
+alias mem="me -nw"
+alias nanow="nano -w"
+alias pep="pep8 --max-line-length 99"
+alias flake="python3-flake8 --max-line-length 99 --exclude .svn,CVS,.bzr,.hg,.git,__pycache__,.tox,.eggs,*.egg,build,dist"
+alias mytox="tox --skip-missing-interpreters"
+alias realtime="/usr/bin/time -f \"\t%e Elapsed Real Time (secs)\""
+alias npms="npm --silent"
+alias dk="docker"
+alias dkc="docker-compose"
+alias composer="php ~/.php/composer.phar"
+alias hgrep="history | grep -i --color=always"
+alias fd="/usr/bin/fd"
+
+alias ll="ls -lh"
+alias la="ls -a"
+
+# Git
+alias gp="git push"
+alias git-show-br="git br | cat"
+
+alias scv-notebook="simplecv notebook"
+alias ipy-notebook="ipython notebook"
+alias ipy-notebook3="ipython3 notebook"
+
+alias httpserve="python3 -m http.server"
+alias ssh-force-pwd="ssh -o PubkeyAuthentication=no"
+
+# Django
+alias pytrd="pytest --reuse-db"
+alias dja="django-admin"
+alias mapy="python manage.py"
+alias show-pending-migrations="python manage.py showmigrations | grep '\[ \]\|^[a-z]' | grep '[  ]' -B 1"
+
+# rpm
+alias rpm-whatprovides="rpm -q --whatprovides"
+alias rpm-package-provides="rpm -qp --provides"
+alias rpm-package-info="rpm -qip"
+alias rpm-package-requires="rpm -qp --requires"
+
+# Docker
+## Simply date, hide hostname, view only from last boot, all fields including long for unit docker.
+## Filty by tag or container name with docker-logs CONTAINER_TAGS=my-tag
+alias dk-logs="sudo journalctl -o short --no-hostname -b --all -u docker"
+
+# Git
+alias gpnv="git push --no-verify"
+
+# openSUSE
+alias zdup='sudo zypper -v dup --auto-agree-with-licenses --no-allow-vendor-change --replacefiles'

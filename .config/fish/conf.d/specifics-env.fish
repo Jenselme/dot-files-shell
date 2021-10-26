@@ -1,0 +1,1 @@
+set -gx GIT_MERGE_DEFAULT_BRANCH preprod
