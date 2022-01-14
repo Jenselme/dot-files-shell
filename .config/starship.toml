@@ -1,5 +1,88 @@
+format = """
+$username\
+$hostname\
+$shlvl\
+$singularity\
+$directory\
+$vcsh\
+$git_branch\
+$git_commit\
+$git_state\
+$git_metrics\
+$git_status\
+$hg_branch\
+$docker_context\
+$package\
+$cmake\
+$cobol\
+$dart\
+$deno\
+$dotnet\
+$elixir\
+$elm\
+$erlang\
+$golang\
+$helm\
+$java\
+$julia\
+$kotlin\
+$lua\
+$nim\
+$nodejs\
+$ocaml\
+$perl\
+$php\
+$pulumi\
+$purescript\
+$python\
+$rlang\
+$red\
+$ruby\
+$rust\
+$scala\
+$swift\
+$terraform\
+$vlang\
+$vagrant\
+$zig\
+$nix_shell\
+$conda\
+$memory_usage\
+$aws\
+$gcloud\
+$kubernetes\
+$openstack\
+$azure\
+$env_var\
+$crystal\
+$custom\
+$sudo\
+$cmd_duration\
+$line_break\
+$jobs\
+$battery\
+$time\
+$status\
+$shell\
+$character"""
+
 [aws]
 disabled = true
 
 [gcloud]
-disabled = true
+disabled = false
+format = ' $symbol $project '
+symbol = '☁️'
+
+[kubernetes]
+disabled = false
+format = ' $symbol $context '
+symbol = "☸"
+[kubernetes.context_aliases]
+"gke_bankstore-production_europe-west4_bankstore-production-autopilot-cluster" = "production"
+"gke_bankstore-preprod_europe-west4_bankstore-preprod-autopilot-cluster" = "preprod"
+"gke_bankstore-dev_europe-west4_bankstore-dev-autopilot-cluster" = "dev"
+
+[python]
+version_format = "v${major}.${minor}"
+format = '[${symbol}${pyenv_prefix}(${version} )(\($virtualenv\) )]($style)'
