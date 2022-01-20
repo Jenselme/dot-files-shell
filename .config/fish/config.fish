@@ -9,4 +9,5 @@ set -gx WORKON_HOME ~/.virtualenvs
 if status is-interactive
     starship init fish | source
     direnv hook fish | source
+    load_nvm
 end
