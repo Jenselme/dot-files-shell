@@ -13,7 +13,7 @@
     fixup = !sh -c 'git commit --fixup=$1 $2' -
     fixa = !sh -c 'git commit -a --fixup=$1 $2' -
     # See: https://technosorcery.net/blog/2012/08/updated-git-rebase-interactive-autosquash-commit-preparation/
-    ri = rebase --interactive --autosquash
+    ri = rebase --interactive --autosquash --rebase-merges
     please = push --force-with-lease
     stp = push --force-with-lease --no-verify
     it = !git init && git commit -m “root” --allow-empty
