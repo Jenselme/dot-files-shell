@@ -62,7 +62,7 @@
         commitencoding = utf8
 
 [gui]
-    editor = gedit
+	editor = kate
 
 [status]
        showUntrackedFiles = all
