@@ -10,4 +10,5 @@ if status is-interactive
     starship init fish | source
     direnv hook fish | source
     load_nvm
+    /usr/sbin/anacron -t ~/.config/anachron -S $HOME/.local/share/var/spool/anacron
 end
