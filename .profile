@@ -76,3 +76,7 @@ anacron -t ~/.config/anachron -S $HOME/.local/share/var/spool/anacron
 # Helm
 HELM_V3_CONFIG=$PWD/.helm3
 HELM_V3_DATA=$PWD/.helm3
+
+
+# Added by Toolbox App
+export PATH="$PATH:/home/jenselme/.local/share/JetBrains/Toolbox/scripts"
