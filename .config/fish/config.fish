@@ -5,6 +5,7 @@ fish_add_path ~/.local/bin
 fish_add_path ~/.nvm/versions/node/v(cat ~/.nvm/alias/default)/bin
 
 set -gx WORKON_HOME ~/.virtualenvs
+set -gx EDITOR micro
 
 if status is-interactive
     starship init fish | source
