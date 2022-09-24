@@ -71,16 +71,15 @@ function clean() {
 }
 
 function restore() {
-    local url_to_restore="$1"
+    local saved_folder_to_restore="$1"
     local restore_to=$(mktemp -d)
 
-    echo "Restoring ${url_to_restore} to ${restore_to}"
-    sync-with-bucket "${SCW_ARCHIVE_TARGET}/${folders[$folder]}" "${DUPLICITY_ARCHIVE_TARGET}/${folders[$folder]}"
+    echo "Restoring ${saved_folder_to_restore} to ${restore_to}"
+    sync-with-bucket "${SCW_ARCHIVE_TARGET}/${saved_folder_to_restore}" "${DUPLICITY_ARCHIVE_TARGET}/${saved_folder_to_restore}"
     duplicity restore \
-        --s3-use-glacier \
         --encrypt-key=${DUPLICITY_GPG_ENCRYPT_KEY} \
         --sign-key=${DUPLICTIY_GPG_SIGN_KEY} \
-        "${url_to_restore}" \
+        "file://${DUPLICITY_ARCHIVE_TARGET}/${saved_folder_to_restore}" \
         "${restore_to}"
 }
 
