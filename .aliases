@@ -18,15 +18,10 @@ alias fd="/usr/bin/fd"
 alias ll="ls -lh"
 alias la="ls -a"
 
-alias assos="ssh webassos'"
-alias jenselme="ssh jenselme"
-alias robot="ssh clubrobot"
-
 alias scv-notebook="simplecv notebook"
 alias ipy-notebook="ipython notebook"
 alias ipy-notebook3="ipython3 notebook"
 
-alias httpserve="python3 -m http.server"
 alias ssh-force-pwd="ssh -o PubkeyAuthentication=no"
 
 # Django
