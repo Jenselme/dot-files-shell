@@ -5,6 +5,7 @@ set -u
 set -o pipefail
 
 source ~/.private/scw-configrc
+source ~/.virtualenvs/backup/bin/activate
 
 function backup() {
     local extra_args="$@"
