@@ -33,6 +33,8 @@ if [[ -f /usr/bin/virtualenvwrapper.sh ]]; then
     source /usr/bin/virtualenvwrapper.sh
 elif [[ -f /usr/bin/virtualenvwrapper ]]; then
     source /usr/bin/virtualenvwrapper
+elif [[ -f /usr/share/virtualenvwrapper/virtualenvwrapper.sh ]]; then
+    source /usr/share/virtualenvwrapper/virtualenvwrapper.sh
 fi
 export PATH="$HOME/.poetry/bin:$PATH"
 export PYTHONBREAKPOINT="pudb.set_trace"
