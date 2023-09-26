@@ -62,7 +62,9 @@ PATH="$PATH:/home/$(whoami)/Projects/go/bin"
 
 
 # Docker
-export DOCKERHOST=$(ip -4 addr show docker0 | grep --only-matching -P 'inet \K[\d.]+')
+if which ip > /dev/null; then
+    export DOCKERHOST=$(ip -4 addr show docker0 | grep --only-matching -P 'inet \K[\d.]+')
+fi
 
 # KDE
 if [[ -n "${KDE_FULL_SESSION}" ]]; then
