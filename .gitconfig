@@ -33,7 +33,7 @@
 [core]
 	attributesfile = ~/.gitattributes
         editor = micro
-        excludesfile = /home/jenselme/.gitignore_global
+        excludesfile = ~/.gitignore_global
         quotepath = off
 
 [diff]
