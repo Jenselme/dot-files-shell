@@ -73,7 +73,9 @@ fi
 
 # Enable anacron.
 # To force execution, use anacron -t ~/.config/anachron -S $HOME/.local/share/var/spool/anacron -nf
-anacron -t ~/.config/anachron -S $HOME/.local/share/var/spool/anacron
+if which anacron > /dev/null; then
+    anacron -t ~/.config/anachron -S $HOME/.local/share/var/spool/anacron
+fi
 
 # Helm
 HELM_V3_CONFIG=$PWD/.helm3
