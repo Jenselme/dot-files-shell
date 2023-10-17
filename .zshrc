@@ -55,7 +55,7 @@ ZSH_CUSTOM=~/.oh-my-zsh-custom
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git common-aliases gitfast git-extras pip pyenv python sudo systemd zsh-syntax-highlighting zbell)
+plugins=(git common-aliases gitfast git-extras pip pyenv python sudo systemd zsh-syntax-highlighting zbell poetry)
 
 source $ZSH/oh-my-zsh.sh
 
