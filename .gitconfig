@@ -22,8 +22,8 @@
     last = describe --abbrev=0 --tags --match "v[0-9]*" origin
     prune = fetch --prune
     stash-all = stash save --include-untracked
-    wontchange = update-index --assume-unchanged
-    willchange = update-index --no-assume-unchanged
+    wontchange = update-index --skip-worktree
+    willchange = update-index --no-skip-worktree
 
 [color]
         diff = auto
