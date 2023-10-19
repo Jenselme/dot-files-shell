@@ -52,7 +52,7 @@
 [push]
         default = simple
         followTags = true
-	autoSetupRemote = true
+        autoSetupRemote = true
 
 [user]
     name = Julien Enselme
@@ -70,6 +70,7 @@
 
 [include]
 	path = ~/.gitconfig.local
+	path = ~/.config/delta/themes.gitconfig
 
 [cola]
 	spellcheck = true
@@ -79,6 +80,7 @@
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
 	required = true
+
 [init]
 	defaultBranch = main
 
@@ -89,10 +91,8 @@
     show = delta
 
 [delta]
-    plus-style = "syntax #012800"
-    minus-style = "syntax #340001"
-    syntax-theme = hoopoe
     navigate = true
+    features = hoopoe
 
 [interactive]
     diffFilter = delta --color-only
