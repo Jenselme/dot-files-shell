@@ -21,6 +21,7 @@
 *.tar
 *.zip
 *.src.rpm
+*.vsix
 
 # Logs and databases #
 ######################
@@ -81,8 +82,3 @@ composer.phar
 docker/data
 .env
 .envrc
-
-
-# Rust #
-#######
-*.lock
