@@ -24,6 +24,9 @@
     stash-all = stash save --include-untracked
     wontchange = update-index --skip-worktree
     willchange = update-index --no-skip-worktree
+    listwontchange = !sh -c 'git ls-files -t | grep "^S"'
+    sw = switch
+    res = restore
 
 [color]
         diff = auto
