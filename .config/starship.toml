@@ -1,3 +1,5 @@
+"$schema" = 'https://starship.rs/config-schema.json'
+
 format = """
 $username\
 $hostname\
@@ -65,17 +67,21 @@ $time\
 $status\
 $shell\
 $character"""
+palette = 'jen'
+
+[palettes.jen]
+yellow = "#F7CA18"
 
 [aws]
 disabled = true
 
 [gcloud]
-disabled = false
+disabled = true
 format = ' $symbol $project '
 symbol = '☁️'
 
 [kubernetes]
-disabled = false
+disabled = true
 format = ' $symbol $context '
 symbol = "☸"
 [kubernetes.context_aliases]
