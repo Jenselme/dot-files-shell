@@ -69,7 +69,11 @@ nbproject
 .nb-gradle
 private
 nb-configuration.xml
-.idea
+.idea/**/workspace.xml
+.idea/**/usage.statistics.xml
+.idea/**/dictionaries
+.idea/**/shelf
+.idea/inspectionProfiles/
 customs.json
 *.iml
 .project
