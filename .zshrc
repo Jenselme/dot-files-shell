@@ -8,9 +8,6 @@ export ZSH=$HOME/.oh-my-zsh
 # time that oh-my-zsh is loaded.
 ZSH_THEME=""
 
-#Star Ship
-eval "$(starship init zsh)"
-
 # Uncomment the following line to use case-sensitive completion.
 CASE_SENSITIVE="true"
 
@@ -108,6 +105,9 @@ function manuel_tasks {
 compdef manuel_tasks manuel
 
 eval "$(direnv hook zsh)"
+#Star Ship
+eval "$(starship init zsh)"
+
 ###-begin-nps-completions-###
 #
 # yargs command completion script
