@@ -39,6 +39,8 @@ fi
 export PATH="$HOME/.poetry/bin:$PATH"
 export PYTHONBREAKPOINT="pudb.set_trace"
 export PATH="$PYENV_ROOT/bin:$PATH"
+export PYTHONDEVMODE=1
+export PYTHONUNBUFFERED=1
 
 
 # Perl6
