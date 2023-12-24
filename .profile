@@ -16,7 +16,9 @@ PATH=/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/sbin:/home/$(whoami)/bin:"${AN
 export PATH
 
 # Node
-PATH="$HOME/.nvm/versions/node/v$(cat ~/.nvm/alias/default)/bin:$PATH"
+if [[ -f ~/.nvm/alias/default ]]; then
+    PATH="$HOME/.nvm/versions/node/v$(cat ~/.nvm/alias/default)/bin:$PATH"
+fi
 NVM_DIR="$HOME/.nvm"
 export NVM_DIR
 source "$NVM_DIR/nvm.sh"
