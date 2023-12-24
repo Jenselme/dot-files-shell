@@ -18,11 +18,11 @@ export PATH
 # Node
 if [[ -f ~/.nvm/alias/default ]]; then
     PATH="$HOME/.nvm/versions/node/v$(cat ~/.nvm/alias/default)/bin:$PATH"
+    NVM_DIR="$HOME/.nvm"
+    export NVM_DIR
+    source "$NVM_DIR/nvm.sh"
+    source "$NVM_DIR/bash_completion"
 fi
-NVM_DIR="$HOME/.nvm"
-export NVM_DIR
-source "$NVM_DIR/nvm.sh"
-source "$NVM_DIR/bash_completion"
 
 # Chrome for karma
 CHROME_BIN=/usr/bin/chromium-browser
@@ -69,6 +69,7 @@ PATH="$PATH:/home/$(whoami)/Projects/go/bin"
 if which ip > /dev/null; then
     export DOCKERHOST=$(ip -4 addr show docker0 | grep --only-matching -P 'inet \K[\d.]+')
 fi
+export DOCKER_BUILDKIT=1
 
 # KDE
 if [[ -n "${KDE_FULL_SESSION}" ]]; then
