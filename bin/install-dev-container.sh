@@ -3,7 +3,7 @@
 set -eu
 
 sudo apt update
-sudo apt install -y zsh most curl wget direnv
+sudo apt install -y zsh most curl wget direnv git
 
 sudo curl -sS https://starship.rs/install.sh | sh -s -- --yes
 wget https://github.com/dandavison/delta/releases/download/0.16.5/delta-0.16.5-i686-unknown-linux-gnu.tar.gz
