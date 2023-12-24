@@ -66,7 +66,7 @@ PATH="$PATH:/home/$(whoami)/Projects/go/bin"
 
 
 # Docker
-if which ip > /dev/null; then
+if which ip > /dev/null && ip -4 addr show docker1 > /dev/null 2>&1; then
     export DOCKERHOST=$(ip -4 addr show docker0 | grep --only-matching -P 'inet \K[\d.]+')
 fi
 export DOCKER_BUILDKIT=1
