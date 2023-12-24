@@ -115,6 +115,8 @@ eval "$(starship init zsh)"
 # Installation: nps completion >> ~/.bashrc
 #    or nps completion >> ~/.bash_profile on OSX.
 #
+autoload -U +X bashcompinit && bashcompinit
+autoload -U +X compinit && compinit
 _yargs_completions()
 {
     local cur_word args type_list
