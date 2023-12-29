@@ -3,7 +3,7 @@
 set -eu
 
 sudo apt update
-sudo apt install -y zsh most curl wget direnv git
+sudo apt install -y zsh most curl wget direnv git less
 
 sudo curl -sS https://starship.rs/install.sh | sh -s -- --yes
 wget https://github.com/dandavison/delta/releases/download/0.16.5/git-delta_0.16.5_amd64.deb
