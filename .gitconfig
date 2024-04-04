@@ -42,6 +42,7 @@
 [diff]
         mnemonicPrefix = true
         wordRegex = .
+	algorithm = histogram
 
 [grep]
         extendedRegexp = true
@@ -99,3 +100,11 @@
 
 [interactive]
     diffFilter = delta --color-only
+[merge]
+	conflictstyle = zdiff3
+[rebase]
+	autostash = true
+[rerere]
+	enabled = true
+[help]
+	autocorrect = 100

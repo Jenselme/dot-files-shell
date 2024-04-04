@@ -86,3 +86,6 @@ composer.phar
 docker/data
 .env
 .envrc
+.vscode/restore-terminals.json
+settings_jen.py
+wsgi_jen.py

@@ -138,3 +138,4 @@ _yargs_completions()
 }
 complete -F _yargs_completions nps
 ###-end-nps-completions-###
+alias dkb='docker exec -it spinapp env TERM=xterm-256color script -q -c "cd /app/spinapp && /bin/zsh"'
