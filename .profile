@@ -40,7 +40,6 @@ elif [[ -f /usr/share/virtualenvwrapper/virtualenvwrapper.sh ]]; then
 fi
 export PATH="$HOME/.poetry/bin:$PATH"
 export PYTHONBREAKPOINT="pudb.set_trace"
-export PATH="$PYENV_ROOT/bin:$PATH"
 export PYTHONDEVMODE=1
 export PYTHONUNBUFFERED=1
 
