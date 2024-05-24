@@ -89,7 +89,7 @@ function main() {
         fi
 
         echo -n "Check that server responds with 200 or 404: "
-        status_code=$(curl --write "%{http_code}" --silent --head --output /dev/null "https://${domain}")
+        status_code=$(curl --write-out "%{http_code}" --silent --head --output /dev/null "https://${domain}")
         if [[ "${status_code}" == '200' || "${status_code}" == '404' ]]; then
             ok
         else
