@@ -21,6 +21,7 @@
 *.tar
 *.zip
 *.src.rpm
+*.rpm
 *.vsix
 
 # Logs and databases #
